@@ -7,7 +7,41 @@ return {
     "williamboman/mason-lspconfig.nvim",
   },
   config = function()
+    -- Import mason
+    local mason = require("mason")
+
+    -- Import mason-lspconfig
+    local mason_lspconfig = require("mason-lspconfig")
+
+    -- Enable mason
+    mason.setup({
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    })
+
+    mason_lspconfig.setup({
+      -- List of LSPs to install automatically
+      ensure_installed = {
+        "lua_ls",
+        "pyright",
+        "ts_ls",
+        "html",
+        "cssls",
+        "bashls",
+        "jsonls",
+      },
+      -- This setting is true by default, meaning all LSP servers installed through Mason
+      -- will be automatically set up by lspconfig.
+      automatic_installation = true,
+    })
+
     require("mason-lspconfig").setup()
+
     -- The on_attach function runs whenever a new LSP server attaches to a buffer.
     -- This is where we define buffer-local keymaps and other buffer-local settings.
     local on_attach = function(client, bufnr)
@@ -63,9 +97,9 @@ return {
       update_in_insert = false,
       severity_sort = true,
     })
-    
+
     -- This is the base capabilities object that we'll modify later
-    local capabilities =require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- The main setup loop.
     -- This gets the list of servers installed by mason-lspconfig and sets them up.
@@ -74,32 +108,32 @@ return {
       -- The first argument is the server name.
       -- The second argument is the setup options table.
       function(server_name)
-        local opts ={
-        on_attach = on_attach,
-        capabilities = capabilities,
+        local opts = {
+          on_attach = on_attach,
+          capabilities = capabilities,
         }
-        
+
         -- Supress 'undefined global `vim`' for lua_ls
-        if server_name == "lua_ls" then 
-        opts.settings = {
-          Lua = {
-            runtime = {
-              version = 'LuaJIT',
+        if server_name == "lua_ls" then
+          opts.settings = {
+            Lua = {
+              runtime = {
+                version = 'LuaJIT',
               },
-            diagnostics = {
-              globals = { "vim" }, -- Tell the language server that 'vim' is a global varible 
+              diagnostics = {
+                globals = { "vim" }, -- Tell the language server that 'vim' is a global variable
               },
               workspace = {
-                library = vim.api.nvim_get_runtime_file("",true),
+                library = vim.api.nvim_get_runtime_file("", true),
                 checkThirdParty = false,
               },
-              telemetry = {enable = false},
+              telemetry = { enable = false },
             },
           }
         end
-        
+
         lspconfig[server_name].setup(opts)
-        end,
+      end,
     })
   end,
 }
