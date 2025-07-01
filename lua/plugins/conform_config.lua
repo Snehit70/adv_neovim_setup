@@ -39,9 +39,7 @@ return {
       },
       formatters = {
         djlint = {
-          command = "djlint",
-          args = { "--reformat", "-" },
-          stdin = true,
+          prepend_args = { "--reformat"},
         },
       },
     })
