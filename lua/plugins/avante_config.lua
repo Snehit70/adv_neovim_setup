@@ -11,33 +11,19 @@ return {
 		-- provider = "openai",
 
 		-- Copilot configuration (since you're using copilot)
-		copilot = {
-			endpoint = "https://api.githubcopilot.com",
-			model = "gpt-4o-2024-05-13",
-			proxy = nil, -- If you need proxy
-			allow_insecure = false,
-			timeout = 30000,
-			temperature = 0,
-			max_tokens = 4096,
+		providers = {
+			copilot = {
+			--	endpoint = "https://api.githubcopilot.com",
+				model = "gpt-4o-2024-05-13",
+				proxy = nil,
+				allow_insecure = false,
+				timeout = 30000,
+				extra_request_body = {
+					temperature = 0,
+					max_tokens = 4096,
+				},
+			},
 		},
-
-		-- Claude configuration (if you want to switch later)
-		claude = {
-			endpoint = "https://api.anthropic.com",
-			model = "claude-3-5-sonnet-20241022",
-			temperature = 0,
-			max_tokens = 4096,
-		},
-
-		-- OpenAI configuration (if you want to switch later)
-		openai = {
-			endpoint = "https://api.openai.com/v1",
-			model = "gpt-4o",
-			timeout = 30000,
-			temperature = 0,
-			max_completion_tokens = 8192,
-		},
-
 		-- Advanced behavior settings
 		behaviour = {
 			auto_suggestions = false, -- Keep false since you have copilot.lua
@@ -91,12 +77,15 @@ return {
 		windows = {
 			position = "right", -- "right" | "left" | "top" | "bottom"
 			wrap = true,
-			width = 30, -- % based on available width
+			width = 35, -- % based on available width
 			sidebar_header = {
 				enabled = true,
 				align = "center", -- "left" | "center" | "right"
 				rounded = true,
 			},
+      spinner= {
+        editing={ "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"},
+      },
 			input = {
 				prefix = "> ",
 				height = 8,
@@ -125,13 +114,24 @@ return {
 
 		-- Suggestion timing (adjust for performance)
 		suggestion = {
-			debounce = 600,
-			throttle = 600,
+			debounce = 300,
+			throttle = 300,
 		},
 
 		-- File selector provider
 		selector = {
 			provider = "telescope", -- "native" | "fzf_lua" | "mini_pick" | "telescope"
+      provider_opts = {
+        telescope = {
+          layout_strategy = "vertical",
+          layout_config = {
+            height = 0.8,
+            width = 0.8,
+            preview_cutoff = 1,
+            preview_height = 0.4,
+          },
+        },
+      },
 		},
 
 		-- Web search integration (optional)

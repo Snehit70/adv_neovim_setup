@@ -34,7 +34,7 @@ return {
     local cmp_status, cmp = pcall(require, "cmp")
     if cmp_status then
       local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done)
     end
 
     -- language-specific rules (e.g., for Jinja)
@@ -42,9 +42,24 @@ return {
     local cond = require("nvim-autopairs.conds")
 
     npairs.add_rules({
-      Rule("{{", "}}", "htmldjango"):with_move(cond.none()),
-      Rule("{%", "%}", "htmldjango"):with_move(cond.none()),
-      Rule("{#", "#}", "htmldjango"):with_move(cond.none()),
+      -- More specific conditions for Django template syntax
+      Rule("{{", "}}", "htmldjango")
+        :with_pair(cond.not_after_regex("}", 1))  -- Don't trigger if there's already a } after cursor
+        :with_pair(cond.not_before_regex("{", 1)) -- Don't trigger if there's already a { before cursor
+        :with_pair(cond.not_inside_quote())       -- Don't trigger inside quotes
+        :with_move(cond.none()),
+
+      Rule("{%", "%}", "htmldjango")
+        :with_pair(cond.not_after_regex("%}", 1))
+        :with_pair(cond.not_before_regex("{", 1))
+        :with_pair(cond.not_inside_quote())
+        :with_move(cond.none()),
+
+      Rule("{#", "#}", "htmldjango")
+        :with_pair(cond.not_after_regex("#}", 1))
+        :with_pair(cond.not_before_regex("{", 1))
+        :with_pair(cond.not_inside_quote())
+        :with_move(cond.none()),
     })
   end,
 }
