@@ -17,7 +17,13 @@ return {
         -- Enable format on save for allowed filetypes only
         local ignore = { "markdown", "json", "txt" } -- Add here if needed
         local ft = vim.bo[bufnr].filetype
-        return not vim.tbl_contains(ignore, ft)
+        if vim.tbl_contains(ignore,ft) then
+          return false
+        end
+        return {
+        timeout_ms=500,
+        lsp_fallback=true,
+    }
       end,
       formatters_by_ft = {
         -- Explicit filetype-to-formatter mapping
