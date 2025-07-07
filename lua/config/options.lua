@@ -16,7 +16,11 @@ opt.expandtab = true
 opt.autoindent = true
 
 -- Line wrapping
-opt.wrap = false
+opt.wrap = true                   -- Enable line wrapping
+opt.linebreak = true              -- Break lines at word boundaries
+opt.showbreak = "↪ "              -- Show line continuation character
+opt.breakindent = true            -- Preserve indentation on wrapped lines
+opt.breakindentopt = "shift:2"    -- Add extra indentation to wrapped lines
 
 -- Search settings
 opt.ignorecase = true

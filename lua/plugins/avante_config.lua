@@ -5,16 +5,12 @@ return {
 	version = false, -- Never set this value to "*"! Never!
 	opts = {
 		-- Provider configuration - you can switch between providers
-		provider = "copilot", -- Since you already have copilot setup
-		-- Alternative providers you can switch to:
-		-- provider = "claude", -- Recommended for best results
-		-- provider = "openai",
+		provider = "gemini", -- Since you already have copilot setup
 
 		-- Copilot configuration (since you're using copilot)
 		providers = {
-			copilot = {
-			--	endpoint = "https://api.githubcopilot.com",
-				model = "gpt-4o-2024-05-13",
+			gemini= {
+				model = "gemini-2.5-flash",
 				proxy = nil,
 				allow_insecure = false,
 				timeout = 30000,
@@ -30,9 +26,10 @@ return {
 			auto_set_highlight_group = true,
 			auto_set_keymaps = true,
 			auto_apply_diff_after_generation = false,
-			support_paste_from_clipboard = false,
+			support_paste_from_clipboard = true,
 			minimize_diff = true,
 			enable_token_counting = true,
+      enable_cursor_planing_mode=true,
 		},
 
 		-- Custom mappings - fully customizable
@@ -253,7 +250,7 @@ return {
 		{
 			"<leader>af",
 			function()
-				require("avante").focus()
+				require("avante.api").focus()
 			end,
 			desc = "avante: focus",
 		},

@@ -1,0 +1,31 @@
+{
+  "diagnostics": {
+    "globals": ["vim"],
+    "disable": ["lowercase-global"]
+  },
+  "runtime": {
+    "version": "LuaJIT",
+    "path": [
+      "lua/?.lua",
+      "lua/?/init.lua"
+    ]
+  },
+  "workspace": {
+    "library": [
+      "${3rd}/luv/library",
+      "$VIMRUNTIME/lua",
+      "$VIMRUNTIME/lua/vim/lsp",
+      "./lua"
+    ],
+    "checkThirdParty": false,
+    "maxPreload": 100000,
+    "preloadFileSize": 10000
+  },
+  "telemetry": {
+    "enable": false
+  },
+  "hint": {
+    "enable": true
+  }
+}
+

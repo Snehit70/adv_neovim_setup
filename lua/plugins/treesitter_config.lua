@@ -6,7 +6,8 @@ return {
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "lua", "vim", "bash", "python", "javascript", "html", "css", "json",
-        "markdown", "markdown_inline", "yaml", "tsx", "typescript", "query"
+        "markdown", "markdown_inline", "yaml", "tsx", "typescript", "query",
+        "htmldjango",
       },
       auto_install = true,
       highlight = { enable = true },
