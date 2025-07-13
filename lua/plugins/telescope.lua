@@ -42,10 +42,5 @@ return {
 		keymap("n", "<leader>fb", builtin.buffers, { noremap = true, silent = true, desc = "find buffers" })
 		keymap("n", "<leader>fh", builtin.help_tags, { noremap = true, silent = true, desc = "help" })
 
-		-- LSP-specific Telescope pickers (only if LSP is active)
-		--    keymap("n", "<leader>fd", builtin.lsp_definitions, opts)
-		--    keymap("n", "<leader>fr", builtin.lsp_references, opts)
-		--    keymap("n", "<leader>fi", builtin.lsp_implementations, opts)
-		--    keymap("n", "<leader>fs", builtin.lsp_document_symbols, opts)
 	end,
 }

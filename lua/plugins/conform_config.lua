@@ -13,18 +13,6 @@ return {
 	},
 	config = function()
 		require("conform").setup({
-			--[[ format_on_save = function(bufnr) ]]
-			--[[ 	-- Enable format on save for allowed filetypes only ]]
-			--[[ 	local ignore = { "markdown", "json", "txt" } -- Add here if needed ]]
-			--[[ 	local ft = vim.bo[bufnr].filetype ]]
-			--[[ 	if vim.tbl_contains(ignore, ft) then ]]
-			--[[ 		return false ]]
-			--[[ 	end ]]
-			--[[ 	return { ]]
-			--[[ 		timeout_ms = 500, ]]
-			--[[ 		lsp_fallback = true, ]]
-			--[[ 	} ]]
-			--[[ end, ]]
 			formatters_by_ft = {
 				-- Explicit filetype-to-formatter mapping
 				python = { "black" },
@@ -39,10 +27,6 @@ return {
 				jinja = { "djlint" }, -- Optional, install separately
 				htmldjango = { "djlint" }, -- Optional, install separately
 
-				-- Add more as needed
-				-- markdown = { "prettier" },  -- Optional, often better manual
-				-- vue = { "prettier" },
-				-- svelte = { "prettier" },
 			},
 			formatters = {
 				djlint = {

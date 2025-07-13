@@ -13,11 +13,6 @@ return {
 				{ "<leader>bp", desc = "󰸟 pick buffer" },
 				{ "<leader>br", desc = "󰰈 close right" },
 				{ "<leader>bl", desc = "󰰆 close left" },
-				{ "<leader>1", desc = "󰎤 buffer 1" },
-				{ "<leader>2", desc = "󰎧 buffer 2" },
-				{ "<leader>3", desc = "󰎪 buffer 3" },
-				{ "<leader>4", desc = "󰎭 buffer 4" },
-				{ "<leader>5", desc = "󰎱 buffer 5" },
 
 				-- Code
 				{ "<leader>c", group = "󰘦 code" },
@@ -34,7 +29,6 @@ return {
 				{ "<leader>ff", desc = "󰈞 find files" },
 				{ "<leader>fg", desc = "󰛔 live grep" },
 				{ "<leader>fb", desc = "󰸝 find buffers" },
-				{ "<leader>fh", desc = "󰘥 help tags" },
 
 				-- Git
 				{ "<leader>g", group = "󰊢 git" },
@@ -60,7 +54,6 @@ return {
 
 				-- Explorer
 				{ "<leader>e", desc = "󰙅 file explorer" },
-				{ "<leader>E", desc = "󰙅 file explorer (alt)" },
 
 				-- Terminal
 				{ "<leader>t", group = "󰙅 terminal" },
@@ -119,7 +112,7 @@ return {
 			},
 		},
 		preset = "modern",
-		delay = 200, -- Faster response
+		delay = 100, -- Faster response
 		expand = 2, -- Show more mappings before grouping
 		notify = true,
 		sort = { "local", "order", "group", "alphanum", "mod" },

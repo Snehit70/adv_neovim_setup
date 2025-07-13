@@ -5,6 +5,9 @@ vim.g.maplocalleader = " "
 -- Basic options
 local opt = vim.opt
 
+-- Command line height
+opt.cmdheight = 1
+
 -- Line numbers
 opt.number = true
 opt.relativenumber = true
@@ -16,11 +19,11 @@ opt.expandtab = true
 opt.autoindent = true
 
 -- Line wrapping
-opt.wrap = true                   -- Enable line wrapping
-opt.linebreak = true              -- Break lines at word boundaries
-opt.showbreak = "↪ "              -- Show line continuation character
-opt.breakindent = true            -- Preserve indentation on wrapped lines
-opt.breakindentopt = "shift:2"    -- Add extra indentation to wrapped lines
+opt.wrap = true
+opt.linebreak = true
+opt.showbreak = "↪ "
+opt.breakindent = true
+opt.breakindentopt = "shift:2"
 
 -- Search settings
 opt.ignorecase = true
@@ -30,6 +33,12 @@ opt.smartcase = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
+
+-- Scrolling
+opt.scrolloff = 8
+
+-- Mouse
+opt.mouse = "a"
 
 -- Backspace
 opt.backspace = "indent,eol,start"
@@ -43,3 +52,7 @@ opt.splitbelow = true
 
 -- Turn off swapfile
 opt.swapfile = false
+
+-- Enable undofile
+opt.undofile = true
+opt.undodir = vim.fn.stdpath("data") .. "/undodir"

@@ -12,6 +12,7 @@ return {
 		"rafamadriz/friendly-snippets", -- optional snippets library
 		"onsails/lspkind.nvim", -- optional icons
 		"zbirenbaum/copilot-cmp", -- Add this line
+		"hrsh7th/cmp-nvim-lsp-signature-help",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -67,11 +68,12 @@ return {
 			sources = cmp.config.sources({
 				{ name = "copilot", group_index = 2 }, --  (medium priority)
 				{ name = "nvim_lsp" },
+				{ name = "cmp_nvim_lsp_signature_help" },
 				{ name = "luasnip" },
 				{ name = "nvim_lua" },
 				{ name = "path" },
 			}, {
-				{ name = "buffer", keyword_length = 3 },
+				{ name = "buffer", keyword_length = 1 },
 			}),
 			window = {
 				completion = cmp.config.window.bordered(),

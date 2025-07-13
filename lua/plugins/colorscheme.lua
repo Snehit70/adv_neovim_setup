@@ -1,46 +1,33 @@
 -- ~/.config/nvim/lua/plugins/colorscheme.lua
 
 return {
-  "catppuccin/nvim",
-  name = "catppuccin",
+  "ellisonleao/gruvbox.nvim",
   lazy = false,
   priority = 1000,
-
   config = function()
-    require("catppuccin").setup({
-      flavour = "mocha", -- latte, frappe, macchiato, mocha
-      transparent_background = false,
-      show_end_of_buffer = false, -- hides ~ at end of window
-      term_colors = true,
-      dim_inactive = {
-        enabled = true,
-        shade = "dark",
-        percentage = 0.15,
+    require("gruvbox").setup({
+      terminal_colors = true,
+      undercurl = true,
+      underline = true,
+      bold = true,
+      italic = {
+        strings = true,
+        comments = true,
+        operators = false,
+        folds = true,
       },
-      no_italic = true,
-      no_bold = true,
-      no_underline = false, -- you said "as blank", so default is false
-      styles = {
-        comments = { "italic" },
-        conditionals = { "italic" },
-        loops = { "italic" },
-        functions = { "bold" },
-        keywords = { "italic" },
-        strings = {},
-        variables = {},
-        numbers = {},
-        booleans = {},
-        properties = {},
-        types = { "italic" },
-        operators = {},
-      },
-      color_overrides = {},
-      custom_highlights = {},
-      default_integrations=true,
-      integrations = {
-      },
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      invert_commandline = false,
+      contrast = "hard", -- can be "hard", "medium", or "soft"
+      palette_overrides = {},
+      overrides = {},
+      dim_inactive = false,
+      transparent_mode = false,
     })
-
-    vim.cmd.colorscheme("catppuccin")
+    vim.o.background = "dark"
+    vim.cmd.colorscheme("gruvbox")
   end,
 }

@@ -12,8 +12,8 @@ return {
     { "<leader>gp", "<cmd>Git push<CR>", desc = "Fugitive: Git push" },
     { "<leader>gP", "<cmd>Git pull<CR>", desc = "Fugitive: Git pull" },
     { "<leader>gb", "<cmd>Git branch<CR>", desc = "Fugitive: Git branches" },
-    { "<leader>gst", "<cmd>Git stash<CR>", desc = "Fugitive: Git stash" },
-    { "<leader>gsr", "<cmd>Git stash pop<CR>", desc = "Fugitive: Git stash pop" },
+--    { "<leader>gst", "<cmd>Git stash<CR>", desc = "Fugitive: Git stash" },
+--    { "<leader>gsr", "<cmd>Git stash pop<CR>", desc = "Fugitive: Git stash pop" },
   },
   config = function()
     vim.api.nvim_create_autocmd("FileType", {

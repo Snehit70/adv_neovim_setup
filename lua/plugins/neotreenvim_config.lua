@@ -70,25 +70,15 @@ return {
       mappings = {
         ["<cr>"] = "open",
         ["<esc>"] = "cancel",
-        ["<tab>"] = "open",
-        ["l"] = "open",
         ["h"] = "close_node",
         ["a"] = "add",
         ["A"] = "add_directory",
         ["d"] = "delete",
         ["r"] = "rename",
-        ["x"] = "cut_to_clipboard",
-        ["c"] = "copy_to_clipboard",
-        ["p"] = "paste_from_clipboard",
         ["R"] = "refresh",
         ["q"] = "close_window",
         ["?"] = "show_help",
-        ["<C-v>"] = "open_vsplit",
-        ["<C-x>"] = "open_split", 
         ["<C-t>"] = "open_tabnew",
-        ["/"] = "fuzzy_finder",
-        ["f"] = "filter_on_submit",
-        ["<C-c>"] = "clear_filter",
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
       }
@@ -130,6 +120,5 @@ return {
   
   keys = {
     {"<leader>e","<cmd>Neotree toggle<cr>",desc = "Float Explorer"},
-    {"<leader>E","<cmd>Neotree toggle<cr>",desc = "Reveal in Explorer"},
   },
 }

@@ -53,7 +53,7 @@ return {
         always_show_bufferline = true,
         hover = {
           enabled = true,
-          delay = 150,
+          delay = 100,
           reveal = { "close" },
         },
         sort_by = "insert_after_current",
@@ -74,10 +74,5 @@ return {
     { "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", desc = "Close other buffers" },
     { "<leader>br", "<cmd>BufferLineCloseRight<cr>", desc = "Close buffers to the right" },
     { "<leader>bl", "<cmd>BufferLineCloseLeft<cr>", desc = "Close buffers to the left" },
-    { "<leader>1", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "Go to buffer 1" },
-    { "<leader>2", "<cmd>BufferLineGoToBuffer 2<cr>", desc = "Go to buffer 2" },
-    { "<leader>3", "<cmd>BufferLineGoToBuffer 3<cr>", desc = "Go to buffer 3" },
-    { "<leader>4", "<cmd>BufferLineGoToBuffer 4<cr>", desc = "Go to buffer 4" },
-    { "<leader>5", "<cmd>BufferLineGoToBuffer 5<cr>", desc = "Go to buffer 5" },
   },
 }
