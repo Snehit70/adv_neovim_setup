@@ -51,12 +51,5 @@ return {
     -- Notification history
     { "<leader>nh", function() Snacks.notifier.show_history() end, desc = "Notification History" },
     { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-    
-    -- File operations
-    { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-    
-    -- Word highlighting toggle
-    { "<leader>uw", function() Snacks.words.toggle() end, desc = "Toggle Word Highlights" },
-    
   },
 }

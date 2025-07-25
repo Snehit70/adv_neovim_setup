@@ -29,7 +29,7 @@ return {
 			support_paste_from_clipboard = true,
 			minimize_diff = true,
 			enable_token_counting = true,
-      enable_cursor_planing_mode=true,
+			      enable_cursor_planing_mode=false,
 		},
 
 		-- Custom mappings - fully customizable

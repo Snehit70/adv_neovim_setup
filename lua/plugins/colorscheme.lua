@@ -1,33 +1,56 @@
 -- ~/.config/nvim/lua/plugins/colorscheme.lua
 
 return {
-  "ellisonleao/gruvbox.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    require("gruvbox").setup({
-      terminal_colors = true,
-      undercurl = true,
-      underline = true,
-      bold = true,
-      italic = {
-        strings = true,
-        comments = true,
-        operators = false,
-        folds = true,
-      },
-      strikethrough = true,
-      invert_selection = false,
-      invert_signs = false,
-      invert_tabline = false,
-      invert_commandline = false,
-      contrast = "hard", -- can be "hard", "medium", or "soft"
-      palette_overrides = {},
-      overrides = {},
-      dim_inactive = false,
-      transparent_mode = false,
-    })
-    vim.o.background = "dark"
-    vim.cmd.colorscheme("gruvbox")
-  end,
+ "catppuccin/nvim",
+ name = "catppuccin",
+ lazy = false,
+ priority = 1000,
+ config = function()
+   require("catppuccin").setup({
+     flavour = "mocha", -- latte, frappe, macchiato, mocha
+     transparent_background = false,
+     show_end_of_buffer = true, -- Show ~ at end of window to indicate empty lines
+     term_colors = true,
+     dim_inactive = {
+       enabled = false, -- Dimming inactive windows is disabled
+       shade = "dark",
+       percentage = 0.15,
+     },
+     no_italic = false, -- Allow italic styling as defined in 'styles'
+     no_bold = false, -- Allow bold styling as defined in 'styles'
+     no_underline = false,
+     styles = {
+       comments = { "italic" },
+       conditionals = { "italic" },
+       loops = { "italic" },
+       functions = { "bold" },
+       keywords = { "italic" },
+       strings = {},
+       variables = {},
+       numbers = {},
+       booleans = {},
+       properties = {},
+       types = { "italic" },
+       operators = {},
+     },
+     color_overrides = {},
+     custom_highlights = function(colors)
+       return {
+         LineNr = { fg = colors.sky },
+         NormalFloat = { bg = colors.mantle },
+         Search = { bg = colors.yellow, fg = colors.base },
+         CursorLineNr = { fg = colors.text, style = { "bold" } },
+       }
+     end,
+     
+     integrations = {
+       cmp = true,
+       gitsigns = true,
+       bufferline = true,
+       neotree = true,
+       treesitter = true,
+     },
+   })
+   vim.cmd.colorscheme("catppuccin")
+ end,
 }

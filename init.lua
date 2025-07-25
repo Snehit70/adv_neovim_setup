@@ -1,11 +1,10 @@
---my new neovim config for best setup .
+-- my new neovim config for best setup .
 
 require("config.options")
 
 require("config.lazy")
 
 
--- Automatically load project-specific .nvim.lua if it exists
 local project_config = vim.fn.getcwd() .. "/.nvim.lua"
 if vim.fn.filereadable(project_config) == 1 then
 	dofile(project_config)
