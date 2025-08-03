@@ -1,38 +1,51 @@
+-- Conform plugin configuration
 return {
-	"stevearc/conform.nvim",
-	event = { "BufWritePre", "BufReadPre" }, -- Load before writing or reading files
-	cmd = "ConformInfo",
-	keys = {
-		{
-			"<leader>cf",
-			function()
-				require("conform").format({ async = true, lsp_fallback = true })
-			end,
-			desc = "Format current buffer",
-		},
-	},
-	config = function()
-		require("conform").setup({
-			formatters_by_ft = {
-				-- Explicit filetype-to-formatter mapping
-				python = { "black" },
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				html = { "prettier" },
-				css = { "prettier" },
-				json = { "prettier" },
-				yaml = { "prettier" },
-				lua = { "stylua" },
-				sh = { "shfmt" },
-				jinja = { "djlint" }, -- Optional, install separately
-				htmldjango = { "djlint" }, -- Optional, install separately
+  -- Conform plugin specification
+  "stevearc/conform.nvim",
+  -- Load on buffer write or read
+  event = { "BufWritePre", "BufReadPre" },
+  cmd = { "ConformInfo" },
 
-			},
-			formatters = {
-				djlint = {
-					prepend_args = { "--reformat" },
-				},
-			},
-		})
-	end,
+  -- Keymap for formatting
+  keys = {
+    {
+      "<leader>cf",
+      function()
+        require("conform").format({ async = true, lsp_fallback = true, timeout_ms = 1000 })
+      end,
+      desc = "Format buffer",
+    },
+  },
+
+  -- Configuration function
+  config = function()
+    -- Setup conform with formatters
+    require("conform").setup({
+      -- Map filetypes to formatters
+      formatters_by_ft = {
+        python = { "black" },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        json = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
+        lua = { "stylua" },
+        sh = { "shfmt" },
+        bash = { "shfmt" },
+        -- Optional formatters
+        jinja = { "djlint" },
+        htmldjango = { "djlint" },
+      },
+      -- Define formatter configurations
+      formatters = {
+        djlint = {
+          prepend_args = { "--reformat" },
+        },
+      },
+    })
+  end,
 }

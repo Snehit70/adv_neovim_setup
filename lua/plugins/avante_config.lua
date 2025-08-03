@@ -5,15 +5,16 @@ return {
 	version = false, -- Never set this value to "*"! Never!
 	opts = {
 		-- Provider configuration - you can switch between providers
-		provider = "gemini", -- Since you already have copilot setup
+		-- provider = "gemini", -- Since you already have copilot setup
+    provider= "copilot",
 
 		-- Copilot configuration (since you're using copilot)
 		providers = {
-			gemini= {
-				model = "gemini-2.5-flash",
+			copilot= {
+				model = "claude-sonnet-4",
 				proxy = nil,
 				allow_insecure = false,
-				timeout = 30000,
+				timeout = 60000,
 				extra_request_body = {
 					temperature = 0,
 					max_tokens = 4096,
@@ -221,21 +222,21 @@ return {
 		{
 			"<leader>aa",
 			function()
-				require("avante.api").ask()
+				pcall(require, "avante.api").ask()
 			end,
 			desc = "avante: ask",
 		},
 		{
 			"<leader>ar",
 			function()
-				require("avante.api").refresh()
+				pcall(require, "avante.api").refresh()
 			end,
 			desc = "avante: refresh",
 		},
 		{
 			"<leader>ae",
 			function()
-				require("avante.api").edit()
+				pcall(require, "avante.api").edit()
 			end,
 			mode = "v",
 			desc = "avante: edit",
@@ -243,21 +244,21 @@ return {
 		{
 			"<leader>at",
 			function()
-				require("avante").toggle()
+				pcall(require, "avante").toggle()
 			end,
 			desc = "avante: toggle",
 		},
 		{
 			"<leader>af",
 			function()
-				require("avante.api").focus()
+				pcall(require, "avante.api").focus()
 			end,
 			desc = "avante: focus",
 		},
 		{
 			"<leader>ac",
 			function()
-				require("avante").chat()
+				pcall(require, "avante").chat()
 			end,
 			desc = "avante: chat",
 		},

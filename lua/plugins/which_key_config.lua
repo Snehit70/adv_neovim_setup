@@ -140,7 +140,7 @@ return {
 		},
 
 		triggers = {
-			{ "<auto>", mode = "nixsotc" },
+			{ "<auto>", mode = "nxsotc" },
 			{ "<leader>", mode = { "n", "v" } },
 			{ "g", mode = { "n", "v" } },
 			{ "s", mode = { "n" } },

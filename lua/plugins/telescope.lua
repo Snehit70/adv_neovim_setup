@@ -41,6 +41,13 @@ return {
 		keymap("n", "<leader>fg", builtin.live_grep, { noremap = true, silent = true, desc = "grep" })
 		keymap("n", "<leader>fb", builtin.buffers, { noremap = true, silent = true, desc = "find buffers" })
 		keymap("n", "<leader>fh", builtin.help_tags, { noremap = true, silent = true, desc = "help" })
+		keymap("n", "<leader>fr", function()
+			builtin.find_files({
+				prompt_title = "Neovim Config Files",
+				cwd = vim.fn.stdpath("config"),
+				hidden = true,
+			})
+		end, { noremap = true, silent = true, desc = "nvim config files" })
 
 	end,
 }
