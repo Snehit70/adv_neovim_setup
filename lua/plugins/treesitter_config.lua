@@ -81,11 +81,6 @@ return {
       autopairs = { enable = true },
     })
 
-    -- Enable treesitter-based folding
-    vim.opt.foldmethod = "expr"
-    vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-    vim.opt.foldenable = false -- Start with folds open
-
     -- rainbow-delimiters setup
     vim.g.rainbow_delimiters = {
       strategy = {
