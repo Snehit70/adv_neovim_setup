@@ -12,7 +12,14 @@ return {
 		config = function()
 			-- Keymap to toggle Copilot globally.
 			-- <leader>co will enable/disable Copilot suggestions across all buffers.
-			vim.keymap.set("n", "<leader>co", function() require("copilot").toggle() end, { desc = "Toggle Copilot" })
+			vim.keymap.set("n", "<leader>co", function()
+				local copilot_enabled = require("copilot.client").is_disabled()
+				if copilot_enabled then
+					vim.cmd("Copilot enable")
+				else
+					vim.cmd("Copilot disable")
+				end
+			end, { desc = "Toggle Copilot" })
 			-- Keymap to explicitly trigger a Copilot suggestion.
 			-- Since auto_trigger is false, this allows manual prompting for suggestions,
 			-- which will then appear in the nvim-cmp completion menu.

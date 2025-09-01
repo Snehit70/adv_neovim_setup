@@ -191,11 +191,7 @@ return {
 							angular1 = false,
 							ionic = false,
 						},
-						-- Custom data for HTML LSP, used for framework-specific autocompletion and validation.
-						-- Currently points to a local bootstrap.json file.
-						customData = {
-                            vim.fn.expand("~/.config/nvim/lsp_custom_data/bootstrap.json"),
-                        },
+						
 					},
 				},
 				-- Filetypes for which the HTML LSP should be active.
