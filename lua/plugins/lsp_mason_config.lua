@@ -1,9 +1,5 @@
--- lua/plugins/lspconfig.lua
--- This file configures Neovim's Language Server Protocol (LSP) client using nvim-lspconfig,
--- integrated with Mason for easy LSP server management.
 return {
 	"neovim/nvim-lspconfig",
-	-- Dependencies for LSP functionality, including completion and Mason integration.
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp (completion plugin)
 		"williamboman/mason-lspconfig.nvim", -- Bridges Mason and nvim-lspconfig
