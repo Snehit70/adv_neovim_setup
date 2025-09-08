@@ -2,6 +2,11 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
+  dependencies = {
+    "hiphish/rainbow-delimiters.nvim",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "windwp/nvim-ts-autotag",
+  },
   config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
@@ -77,16 +82,13 @@ return {
           },
         },
       },
-      -- Autopairs integration
       autopairs = { enable = true },
     })
 
-    -- Enable treesitter-based folding
     vim.opt.foldmethod = "expr"
     vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
     vim.opt.foldenable = false -- Start with folds open
 
-    -- rainbow-delimiters setup
     vim.g.rainbow_delimiters = {
       strategy = {
         [''] = require('rainbow-delimiters').strategy['global'],
@@ -105,9 +107,4 @@ return {
       },
     }
   end,
-  dependencies = {
-    "hiphish/rainbow-delimiters.nvim",
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "windwp/nvim-ts-autotag",
-  },
 }

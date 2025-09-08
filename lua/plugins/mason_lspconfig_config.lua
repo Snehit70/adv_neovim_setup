@@ -6,7 +6,6 @@ return {
 	},
 	opts = {
 		ensure_installed = {
-			-- LSP servers (you already have these)
 			"lua_ls",
 			"pyright",
 			"ts_ls",
@@ -17,6 +16,6 @@ return {
 			"emmet_ls", -- ✓ You have this
 			"jinja_lsp", -- ✓ You have this (use this instead of djlsp)
 		},
-		automatic_installation = false,
+		automatic_installation = true,
 	},
 }

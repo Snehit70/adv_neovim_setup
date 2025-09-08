@@ -2,9 +2,9 @@ return {
   "windwp/nvim-ts-autotag",
   event = "InsertEnter",
   ft = {
-    "html", "xml", "javascript", "javascriptreact",
-    "typescript", "typescriptreact", "markdown",
-    "htmldjango", "jinja", "templ", "ejs",
+    "html","javascript",
+    "typescript","markdown",
+    "htmldjango", "jinja",
   },
   config = function()
     local ok, autotag = pcall(require, "nvim-ts-autotag")
@@ -16,7 +16,6 @@ return {
         enable_auto_close = true,
         disable_autotag_for_tags = {"br", "hr", "input", "img", "link", "meta"},
         enable_rename = true,
-        enable_rename_on_typing = true,
         excluded_filetypes = {"json", "yaml"},
         enable_close_on_rename = false,
       },

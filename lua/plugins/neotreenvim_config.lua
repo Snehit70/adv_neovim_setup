@@ -12,7 +12,6 @@ return {
     popup_border_style = "rounded",
     enable_git_status = true,
     enable_diagnostics = true,
-    
     default_component_configs = {
       indent = {
         indent_size = 2,
@@ -101,13 +100,11 @@ return {
       use_libuv_file_watcher = true,
       bind_to_cwd = false,
     },
-    
     git_status = {
       window = {
         position = "float",
       }
     },
-    
     event_handlers = {
       {
         event = "file_open_requested",
@@ -117,7 +114,6 @@ return {
       },
     },
   },
-  
   keys = {
     {"<leader>e","<cmd>Neotree toggle<cr>",desc = "Float Explorer"},
   },

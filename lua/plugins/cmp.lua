@@ -18,15 +18,10 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		require("luasnip.loaders.from_vscode").lazy_load()
-
-		-- optional: pictograms
 		local lspkind = require("lspkind")
 		lspkind.init()
 
-		-- Neovim completion settings
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
-
-		-- cmp setup
 		cmp.setup({
 			snippet = {
 				expand = function(args)

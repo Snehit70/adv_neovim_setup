@@ -11,7 +11,6 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   opts = {
-    -- configuration goes here
     arg = "leetcode.nvim",
     lang = "python3", -- default language
     cn = { -- leetcode.cn

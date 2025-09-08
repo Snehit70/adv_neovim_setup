@@ -26,11 +26,9 @@ return {
        keywords = { "italic" },
        strings = { "italic" },
        variables = { "italic" },
-       numbers = {},
        booleans = { "bold" },
        properties = { "italic" },
        types = { "italic" },
-       operators = {},
      },
      color_overrides = {},
      custom_highlights = function(colors)

@@ -32,25 +32,8 @@ return {
 
 				-- Git
 				{ "<leader>g", group = "󰊢 git" },
-				{ "<leader>gG", desc = "󰊢 git status" },
-				{ "<leader>gc", desc = "󰜘 commits" },
-				{ "<leader>gL", desc = "󰭤 git log" },
-				{ "<leader>gl", desc = "󰋺 git log (alt)" },
-				{ "<leader>gh", desc = "󰙅 git hunks" },
-				{ "<leader>gb", desc = "󰳸 git blame" },
-				{ "<leader>gm", desc = "󰇚 git merge" },
-				{ "<leader>gp", desc = "󰐞 git push" },
-				{ "<leader>gP", desc = "󰇚 git pull" },
-				{ "<leader>gst", desc = "󰅂 git stash" },
-				{ "<leader>gsr", desc = "󰫠 stash restore" },
-				{ "<leader>gD", desc = "󰉞 diff this ~" },
-				{ "<leader>gd", desc = "󰉞 diff this" },
-				{ "<leader>gR", desc = "󰦛 reset buffer" },
 				{ "<leader>gS", desc = "󰈖 stage buffer" },
-				{ "<leader>gt", desc = "󰘾 toggle blame" },
-				{ "<leader>gs", desc = "󰈖 stage hunk", mode = { "n", "v" } },
-				{ "<leader>gr", desc = "󰦛 reset hunk", mode = { "n", "v" } },
-				{ "<leader>gp", desc = "󰸩 preview hunk" },
+				{ "<leader>gR", desc = "󰦛 reset buffer" },
 
 				-- Explorer
 				{ "<leader>e", desc = "󰙅 file explorer" },
@@ -68,8 +51,6 @@ return {
 				-- Navigation
 				{ "[", group = "󰒮 prev" },
 				{ "]", group = "󰒭 next" },
-				{ "[c", desc = "󰰹 prev git hunk" },
-				{ "]c", desc = "󰰸 next git hunk" },
 
 				-- Goto
 				{ "g", group = "󰞉 goto" },
@@ -79,17 +60,6 @@ return {
 				{ "gcO", desc = "󰅈 comment below" },
 				{ "gcA", desc = "󰅈 comment end" },
 
-				-- Surround
-				{ "s", group = "󰅃 surround" },
-				{ "ys", desc = "󰅃 add surround" },
-				{ "ds", desc = "󰅃 delete surround" },
-				{ "cs", desc = "󰅃 change surround" },
-				{ "sf", desc = "󰞚 find forward" },
-				{ "sF", desc = "󰞘 find backward" },
-				{ "sh", desc = "󰸱 highlight" },
-				{ "sn", desc = "󰞗 find next" },
-				{ "ysd", desc = "󰅃 surround with div" },
-
 				-- Other useful mappings
 				{ "K", desc = "󰘥 hover docs" },
 				{ "<Tab>", desc = "󰓩 next buffer" },
@@ -97,18 +67,12 @@ return {
 			{
 				mode = { "v" },
 				-- Visual mode specific
-				{ "<CR>", desc = "󰆤 increment selection" },
-				{ "ih", desc = "󰊢 select git hunk" },
-				{ "ys", desc = "󰅃 add surround" },
 				{ "gc", desc = "󰅈 toggle comment" },
 				{ "gb", desc = "󰅈 toggle block comment" },
 			},
 			{
 				mode = { "x" },
 				-- Select mode
-				{ "<CR>", desc = "󰆤 start selection" },
-				{ "#", desc = "󰞘 search backward" },
-				{ "gx", desc = "󰌷 open link" },
 			},
 		},
 		preset = "modern",

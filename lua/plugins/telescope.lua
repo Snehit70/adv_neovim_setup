@@ -33,10 +33,7 @@ return {
 			},
 		})
 
-		-- Keymaps
 		local keymap = vim.keymap.set
-		--		local opts = { noremap = true, silent = true }
-
 		keymap("n", "<leader>ff", builtin.find_files, { noremap = true, silent = true, desc = "files" })
 		keymap("n", "<leader>fg", builtin.live_grep, { noremap = true, silent = true, desc = "grep" })
 		keymap("n", "<leader>fb", builtin.buffers, { noremap = true, silent = true, desc = "find buffers" })
