@@ -25,18 +25,6 @@ return {
         "gitcommit",
         "help",
       },
-      ---
-      --  fast_wrap = { -- This section is commented out as per user request.
-      --    map = "<M-e>", -- Keybinding to trigger fast wrap (Alt+e)
-      --    chars = { "{", "[", "(", '"', "'" }, -- Characters that can be used for wrapping
-      --    pattern = [=[[%'%=">%]%)%}%,]]=], -- Regex pattern to identify wrap-able characters
-      --    end_key = "$", -- Cursor moves to the end of wrapped content after wrapping
-      --    keys = "qwertyuiopzxcvbnmasdfghjkl", -- Keys used to select the wrapping character
-      --    manual_position = true,
-      --    highlight = "Search",
-      --    highlight_grey = "Comment",
-      --  },
-      --
       enable_check_bracket_line = true
     })
 

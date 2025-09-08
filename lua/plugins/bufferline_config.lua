@@ -1,19 +1,10 @@
--- This file configures the 'bufferline.nvim' plugin.
--- bufferline.nvim provides a highly customizable bufferline (or tabline) at the top of your editor.
--- It displays open buffers, allows for quick navigation, visual indication of modified files,
--- and integrates with LSP diagnostics.
-
 return {
   "akinsho/bufferline.nvim",
-  -- Load the plugin very late in the startup process to ensure other essential plugins are in place.
   event = "VeryLazy",
-  -- Use any version of the plugin.
   version = "*",
-  -- Declare dependencies: nvim-web-devicons provides file type icons for the bufferline.
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  -- The 'opts' function returns the configuration table for bufferline.nvim.
   opts = function()
     return {
       options = {

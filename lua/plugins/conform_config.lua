@@ -34,7 +34,6 @@ return {
         yaml = { "prettier" },
         markdown = { "prettier" },
         lua = { "stylua" },
-        sh = { "shfmt" },
         bash = { "shfmt" },
         -- Optional formatters
         jinja = { "djlint" },

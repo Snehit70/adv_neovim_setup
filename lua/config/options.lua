@@ -28,7 +28,7 @@ opt.signcolumn = "yes" -- Always show sign column
 opt.cursorline = true -- Highlight current line
 
 opt.updatetime = 300 -- Faster completion (4000ms default)
-opt.timeoutlen = 400 -- Time to wait for key sequence
+opt.timeoutlen = 300 -- Time to wait for key sequence
 
 opt.conceallevel = 3 -- Hide markup characters
 opt.concealcursor = "n" -- Hide concealed text in normal mode

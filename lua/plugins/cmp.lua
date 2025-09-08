@@ -66,7 +66,6 @@ return {
 				}),
 			},
 			sources = cmp.config.sources({
-				{ name = "copilot", group_index = 2 }, --  (medium priority)
 				{ name = "nvim_lsp" },
 				{ name = "cmp_nvim_lsp_signature_help" },
 				{ name = "luasnip" },
