@@ -1,6 +1,4 @@
--- my new neovim config for best setup .
-
+-- my neovim config
 require("config.options")
-
 require("config.lazy")
 
