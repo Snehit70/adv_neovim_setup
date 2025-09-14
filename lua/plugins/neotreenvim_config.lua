@@ -12,6 +12,7 @@ return {
     popup_border_style = "rounded",
     enable_git_status = true,
     enable_diagnostics = true,
+    
     default_component_configs = {
       indent = {
         indent_size = 2,
@@ -57,54 +58,135 @@ return {
     
     window = {
       position = "float",
-      max_width = 120,
-      max_height = 40,
       popup = {
         size = {
-          height = "80%",
-          width = "60%",
+          height = "85%", -- Slightly larger for better usability
+          width = "65%",
         },
-        position = "50%",
+        position = "50%", -- Centered
       },
       mappings = {
         ["<cr>"] = "open",
         ["<esc>"] = "cancel",
+        ["q"] = "close_window",
+        
+        -- Navigation
         ["h"] = "close_node",
+        ["l"] = "open",
+        ["<Tab>"] = "open",
+        
+        -- File operations (simple ones you might use)
         ["a"] = "add",
-        ["A"] = "add_directory",
+        ["A"] = "add_directory", 
         ["d"] = "delete",
         ["r"] = "rename",
         ["R"] = "refresh",
-        ["q"] = "close_window",
-        ["?"] = "show_help",
-        ["<C-t>"] = "open_tabnew",
+        
+        -- Utility
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
+        ["?"] = "show_help",
+        ["<C-t>"] = "open_tabnew",
+        ["<C-v>"] = "open_vsplit",
+        ["<C-x>"] = "open_split",
       }
     },
     
     filesystem = {
+      -- Enhanced ignore patterns (matching your telescope config)
       filtered_items = {
         visible = true,
         hide_dotfiles = false,
-        hide_gitignored = false,
+        hide_gitignored = true, -- Hide git ignored files by default
         hide_by_name = {
+          -- Dependencies and build artifacts
           "node_modules",
+          "npm-debug.log",
+          "yarn-error.log",
+          "package-lock.json",
+          "yarn.lock",
+          
+          -- Python
+          "__pycache__",
+          ".pytest_cache",
+          ".venv",
+          "venv",
+          ".env",
+          "*.pyc",
+          "*.pyo",
+          "*.pyd",
+          
+          -- Rust
+          "target",
+          "Cargo.lock",
+          
+          -- Go
+          "go.sum",
+          
+          -- Java
+          "*.class",
+          "*.jar",
+          "*.war",
+          
+          -- C/C++
+          "*.o",
+          "*.a",
+          "*.so",
+          "*.dylib",
+          "*.exe",
+          
+          -- IDEs and editors
+          ".vscode",
+          ".idea",
+          "*.swp",
+          "*.swo",
+          
+          -- OS generated
           ".DS_Store",
+          "Thumbs.db",
+          "desktop.ini",
+          ".Trashes",
+          
+          -- Logs and temporary
+          "*.log",
+          "*.tmp",
+          "*.temp",
+        },
+        hide_by_pattern = {
+          "*.git/*",
+          "*/node_modules/*",
+          "*/__pycache__/*",
+          "*/target/*",
+          "*/.venv/*",
+          "*/venv/*",
+        },
+        never_show = {
+          ".DS_Store",
+          "thumbs.db"
         },
       },
+      
       follow_current_file = {
         enabled = true,
         leave_dirs_open = false,
       },
+      
+      -- Performance optimizations
       use_libuv_file_watcher = true,
       bind_to_cwd = false,
+      
+      -- Better file handling
+      group_empty_dirs = true, -- Group single child directories
+      hijack_netrw_behavior = "open_current", -- Replace netrw
     },
+    
     git_status = {
       window = {
         position = "float",
       }
     },
+    
+    -- Enhanced event handlers
     event_handlers = {
       {
         event = "file_open_requested",
@@ -112,9 +194,17 @@ return {
           require("neo-tree.command").execute({ action = "close" })
         end
       },
+      {
+        event = "file_opened",
+        handler = function()
+          require("neo-tree.command").execute({ action = "close" })
+        end
+      },
     },
   },
+  
   keys = {
-    {"<leader>e","<cmd>Neotree toggle<cr>",desc = "Float Explorer"},
+    { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle file explorer" },
+    { "<leader>E", "<cmd>Neotree focus<cr>", desc = "Focus file explorer" },
   },
 }
