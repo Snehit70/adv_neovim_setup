@@ -8,32 +8,7 @@ return {
 		local lspconfig = require("lspconfig")
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-		local on_attach = function(client, bufnr)
-			local map = function(mode, lhs, rhs, desc)
-				vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
-			end
-
-			-- Keymaps for common LSP features:
-			map("n", "gd", vim.lsp.buf.definition, "Go to Definition")
-			map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
-			map("n", "gi", vim.lsp.buf.implementation, "Go to Implementation")
-			map("n", "<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
-			map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Actions")
-			map("n", "gr", vim.lsp.buf.references, "Find References")
-
-			if client.server_capabilities.documentHighlightProvider then
-				vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-					buffer = bufnr,
-					callback = vim.lsp.buf.document_highlight,
-				})
-				vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-					buffer = bufnr,
-					callback = vim.lsp.buf.clear_references,
-				})
-			end
-		end
-
+		
 		vim.diagnostic.config({
 			signs = { -- Icons to display in the sign column for diagnostics.
 				text = {
@@ -79,6 +54,7 @@ return {
 							angular1 = false,
 							ionic = false,
 						},
+						
 					},
 				},
 				filetypes = { "html", "htm", "htmldjango", "jinja", "jinja2" },
