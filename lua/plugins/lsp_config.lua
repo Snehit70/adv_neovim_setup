@@ -75,13 +75,6 @@ return {
       capabilities = vim.lsp.protocol.make_client_capabilities()
     end
 
-    -- Server setup with error handling
-    local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
-    if not lspconfig_ok then
-      vim.notify("lspconfig not found!", vim.log.levels.ERROR)
-      return
-    end
-
     mason_lspconfig.setup_handlers({
       -- Default handler for all servers
       function(server_name)
@@ -109,7 +102,7 @@ return {
           }
         end
 
-        lspconfig[server_name].setup(opts)
+        vim.lsp.config(server_name, opts)
       end,
     })
   end,
