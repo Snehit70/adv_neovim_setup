@@ -9,7 +9,6 @@ return {
     if not status_ok then
       return
     end
-
     npairs.setup({
       -- Basic settings
       check_ts = true,
@@ -30,7 +29,6 @@ return {
         "gitcommit",
         "help",
       },
-      
       -- Advanced options
       disable_in_macro = true,
       disable_in_visualblock = false,

@@ -75,14 +75,5 @@ return {
     -- Buffer management (matching your which-key config)
     { "<leader>bc", "<cmd>bdelete<cr>", desc = "Close current buffer" },
     { "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", desc = "Close other buffers" },
-    { "<leader>br", "<cmd>BufferLineCloseRight<cr>", desc = "Close buffers to right" },
-    { "<leader>bl", "<cmd>BufferLineCloseLeft<cr>", desc = "Close buffers to left" },
-    
-    -- Quick buffer access (numbers)
-    { "<leader>1", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "Go to buffer 1" },
-    { "<leader>2", "<cmd>BufferLineGoToBuffer 2<cr>", desc = "Go to buffer 2" },
-    { "<leader>3", "<cmd>BufferLineGoToBuffer 3<cr>", desc = "Go to buffer 3" },
-    { "<leader>4", "<cmd>BufferLineGoToBuffer 4<cr>", desc = "Go to buffer 4" },
-    { "<leader>5", "<cmd>BufferLineGoToBuffer 5<cr>", desc = "Go to buffer 5" },
   },
 }

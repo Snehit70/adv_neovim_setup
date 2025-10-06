@@ -75,35 +75,37 @@ return {
       capabilities = vim.lsp.protocol.make_client_capabilities()
     end
 
-    mason_lspconfig.setup_handlers({
-      -- Default handler for all servers
-      function(server_name)
-        local opts = {
-          on_attach = on_attach,
-          capabilities = capabilities,
-        }
-
-        -- Special configuration for lua_ls
-        if server_name == "lua_ls" then
-          opts.settings = {
-            Lua = {
-              runtime = {
-                version = "LuaJIT",
-              },
-              diagnostics = {
-                globals = { "vim" }, -- Suppress 'undefined global vim' warnings
-              },
-              workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-              },
-              telemetry = { enable = false },
-            },
+    mason_lspconfig.setup({
+      ensure_installed = {},
+      handlers = {
+        function(server_name)
+          local opts = {
+            on_attach = on_attach,
+            capabilities = capabilities,
           }
-        end
 
-        vim.lsp.config(server_name, opts)
-      end,
+          -- Special configuration for lua_ls
+          if server_name == "lua_ls" then
+            opts.settings = {
+              Lua = {
+                runtime = {
+                  version = "LuaJIT",
+                },
+                diagnostics = {
+                  globals = { "vim" }, -- Suppress 'undefined global vim' warnings
+                },
+                workspace = {
+                  library = vim.api.nvim_get_runtime_file("", true),
+                  checkThirdParty = false,
+                },
+                telemetry = { enable = false },
+              },
+            }
+          end
+
+          require('lspconfig')[server_name].setup(opts)
+        end,
+      }
     })
   end,
 }

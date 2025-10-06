@@ -16,10 +16,8 @@ return {
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     
-    -- Load real snippets only (like VSCode)
     require("luasnip.loaders.from_vscode").lazy_load()
     
-    -- VSCode-like completion settings
     vim.opt.completeopt = { "menu", "menuone", "noselect" }
     vim.opt.pumheight = 12 -- VSCode-like height
 
@@ -29,7 +27,6 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
-      
       -- VSCode-like keybindings - Enter WORKS!
       mapping = {
         -- ENTER accepts the highlighted suggestion (like VSCode)
@@ -45,7 +42,6 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-        
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
