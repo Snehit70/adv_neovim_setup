@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = "BufReadPre",
+  event = {"BufReadPre", "BufNewFile"},
   config = function()
     local gitsigns = require("gitsigns")
     gitsigns.setup({
@@ -13,10 +13,11 @@ return {
         untracked    = { text = "┆" }, -- Dotted vertical line for untracked lines.
       },
       signcolumn = true,
-      numhl      = false,
+      numhl      = true, -- Highlights line numbers for changed lines.
       linehl     = false,
       word_diff  = false,
       watch_gitdir = { follow_files = true },
+      max_file_length = 10000, -- Disables gitsigns for files longer than 10000 lines for performance.
       attach_to_untracked = true,
       current_line_blame = false,
       current_line_blame_opts = {
@@ -27,9 +28,10 @@ return {
         virt_text_priority = 100, -- Sets the display priority for the virtual text.
         use_focus = true, -- Only shows blame when the Neovim window is focused.
       },
-      current_line_blame_formatter = "<author>, <author_time:%R> – <hash:7> <summary>",
+      current_line_blame_formatter = " <author> • <author_time:%R> • <summary>",
+      current_line_blame_formatter_nc = " <author> • Uncommitted changes",
       sign_priority = 6,
-      update_debounce = 200, -- Changed from 100ms for smoother visuals.
+      update_debounce = 100, -- Optimized for responsive feedback (changed from 200ms).
       status_formatter = function(opts)
         if not opts.added and not opts.changed and not opts.removed then
           return ''
@@ -46,6 +48,13 @@ return {
         end
         return str
       end,
+      preview_config = {
+        border = "rounded",
+        style = "minimal",
+        relative = "cursor",
+        row = 0,
+        col = 1
+      },
       
       on_attach = function(bufnr)
         local gs = require("gitsigns")
@@ -56,14 +65,34 @@ return {
           vim.keymap.set(mode, l, r, opts)
         end
 
-        map("n", "<leader>gbl", gs.blame_line, {desc = "Blame Line"})
-        map("n", "<leader>gt", gs.toggle_current_line_blame, {desc = "Toggle Line Blame"})
+        -- Note: Hunk navigation ([c, ]c), stage/reset hunk, preview hunk, and text objects
+        -- are intentionally not configured as they are not needed for this setup.
+
+        -- Buffer Operations
         map("n", "<leader>gS", gs.stage_buffer, {desc = "Stage Buffer"})
         map("n", "<leader>gR", gs.reset_buffer, {desc = "Reset Buffer"})
+        
+        -- Blame Operations
+        map("n", "<leader>gbl", gs.blame_line, {desc = "Blame Line"})
+        map("n", "<leader>gb", gs.blame, {desc = "Full Blame"})
+        map("n", "<leader>gt", gs.toggle_current_line_blame, {desc = "Toggle Line Blame"})
+        
+        -- Toggle Operations
+        map("n", "<leader>gts", gs.toggle_signs, {desc = "Toggle Signs"})
+        map("n", "<leader>gtd", gs.toggle_deleted, {desc = "Toggle Deleted"})
+        
+        -- Diff Operations
         map("n", "<leader>gd", gs.diffthis, {desc = "Diff This"})
         map("n", "<leader>gdt", function() gs.diffthis("~") end, {desc = "Diff This ~"})
         map("n", "<leader>gD", function() gs.diffthis("") end, {desc = "Diff This (Floating)"})
-      end,
+        
+        -- Telescope Integration (if available)
+        local has_telescope, _ = pcall(require, "telescope.builtin")
+        if has_telescope then
+          map("n", "<leader>gf", "<cmd>Telescope git_status<cr>", {desc = "Git Status (Telescope)"})
+          map("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", {desc = "Git Commits (Telescope)"})
+          map("n", "<leader>gbc", "<cmd>Telescope git_bcommits<cr>", {desc = "Buffer Commits (Telescope)"})
+        end
     })
   end,
 }
