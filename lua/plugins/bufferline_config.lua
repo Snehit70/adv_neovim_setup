@@ -25,9 +25,14 @@ return {
       -- LSP integration
       diagnostics = "nvim_lsp",
       diagnostics_update_in_insert = false,
-      diagnostics_indicator = function(count, level)
-        local icon = level:match("error") and " " or " "
-        return " " .. icon .. count
+      diagnostics_indicator = function(count, level, diagnostics_dict, context)
+        local s = " "
+        for e, n in pairs(diagnostics_dict) do
+          local sym = e == "error" and " "
+            or (e == "warning" and " " or " " )
+          s = s .. n .. sym
+        end
+        return s
       end,
       
       -- File explorer integration
@@ -57,6 +62,13 @@ return {
         -- Remove extension for markdown files
         if buf.name:match("%.md$") then
           return vim.fn.fnamemodify(buf.name, ":t:r")
+        end
+        -- Truncate long paths for config files
+        if buf.name:match("%.config") or buf.name:match("%.nvim") then
+          local parts = vim.split(buf.name, "/")
+          if #parts > 3 then
+            return "…/" .. parts[#parts-1] .. "/" .. parts[#parts]
+          end
         end
         -- Show just filename for others
         return vim.fn.fnamemodify(buf.name, ":t")

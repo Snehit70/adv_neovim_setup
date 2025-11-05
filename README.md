@@ -108,9 +108,6 @@ nvim
 | `<S-Tab>` | Previous Buffer | Cycle to previous buffer |
 | `<leader>bc` | Close Buffer | Close current buffer |
 | `<leader>bo` | Close Others | Close all other buffers |
-| `<leader>br` | Close Right | Close buffers to the right |
-| `<leader>bl` | Close Left | Close buffers to the left |
-| `<leader>1-5` | Jump to Buffer | Quick access to numbered buffers |
 
 ## 🔌 Plugin Ecosystem
 

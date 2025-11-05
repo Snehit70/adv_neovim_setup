@@ -30,7 +30,10 @@ return {
       -- VSCode-like keybindings - Enter WORKS!
       mapping = {
         -- ENTER accepts the highlighted suggestion (like VSCode)
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ 
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,  -- Only confirm explicitly selected items
+        }),
         
         -- Tab cycles through suggestions (VSCode behavior)
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -49,6 +52,19 @@ return {
             luasnip.jump(-1)
           else
             fallback()
+          end
+        end, { "i", "s" }),
+        
+        -- Additional snippet navigation
+        ["<C-l>"] = cmp.mapping(function()
+          if luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
+          end
+        end, { "i", "s" }),
+        
+        ["<C-h>"] = cmp.mapping(function()
+          if luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
           end
         end, { "i", "s" }),
         
@@ -106,14 +122,46 @@ return {
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, item)
+          -- LSP kind icons
+          local kind_icons = {
+            Text = "󰉿",
+            Method = "󰆧",
+            Function = "󰊕",
+            Constructor = "",
+            Field = "󰜢",
+            Variable = "󰀫",
+            Class = "󰠱",
+            Interface = "",
+            Module = "",
+            Property = "󰜢",
+            Unit = "󰑭",
+            Value = "󰎠",
+            Enum = "",
+            Keyword = "󰌋",
+            Snippet = "",
+            Color = "󰏘",
+            File = "󰈙",
+            Reference = "󰈇",
+            Folder = "󰉋",
+            EnumMember = "",
+            Constant = "󰏿",
+            Struct = "󰙅",
+            Event = "",
+            Operator = "󰆕",
+            TypeParameter = "",
+          }
+          
           -- VSCode-like source labels
           local menu_icons = {
-            nvim_lsp = "LSP",
-            nvim_lua = "Lua",
-            buffer = "Text", 
-            path = "Path",
-            luasnip = "Snippet",
+            nvim_lsp = "[LSP]",
+            nvim_lua = "[Lua]",
+            buffer = "[Text]", 
+            path = "[Path]",
+            luasnip = "[Snip]",
           }
+          
+          -- Add kind icon
+          item.kind = string.format('%s %s', kind_icons[item.kind] or "", item.kind)
           item.menu = menu_icons[entry.source.name] or ""
           
           -- Truncate long completions (VSCode behavior)
@@ -161,6 +209,14 @@ return {
       sources = {
         { name = "path", max_item_count = 10 },
         { name = "cmdline", max_item_count = 10 },
+      },
+    })
+    
+    -- Search completion
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer", max_item_count = 10 },
       },
     })
   end,
