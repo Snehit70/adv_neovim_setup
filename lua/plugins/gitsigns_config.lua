@@ -93,7 +93,6 @@ return {
           map("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", {desc = "Git Commits (Telescope)"})
           map("n", "<leader>gbc", "<cmd>Telescope git_bcommits<cr>", {desc = "Buffer Commits (Telescope)"})
         end
-      end,
     })
   end,
 }
