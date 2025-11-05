@@ -5,14 +5,10 @@ return {
     "JoosepAlviste/nvim-ts-context-commentstring", -- Enables JSX/Jinja support
   },
   config = function()
-    require("ts_context_commentstring").setup({
-      enable_autocmd = false,
-    })
-
     require("Comment").setup({
       padding = true,
       sticky = true,
-      ignore = nil,
+      ignore = "^$", -- Ignore empty lines when commenting
       toggler = {
         line = "gcc", -- Toggle line comment
         block = "gbc", -- Toggle block comment
@@ -29,8 +25,10 @@ return {
       mappings = {
         basic = true,     -- gcc, gbc
         extra = true,     -- gco, gcO, gcA
-        extended = true,  -- Enables 'gs' text-object commenting
+        extended = false, -- Disable unused 'gs' text-object
       },
+      -- Modern ts-context-commentstring integration
+      pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
     })
   end,
 }
