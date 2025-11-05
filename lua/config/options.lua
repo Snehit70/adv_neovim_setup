@@ -30,8 +30,8 @@ opt.shortmess:append("c") -- Don't show completion messages
 opt.whichwrap:append("<>[]hl") -- Allow cursor wrap with arrow keys
 opt.fillchars = {
   fold = " ",
-  foldopen = "",
-  foldclose = "",
+  foldopen = "v",
+  foldclose = ">",
   foldsep = " ",
   diff = "╱",
   eob = " ", -- Hide ~ at end of buffer
