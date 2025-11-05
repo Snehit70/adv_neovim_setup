@@ -5,10 +5,8 @@ return {
     "hrsh7th/nvim-cmp",
   },
   config = function()
-    local status_ok, npairs = pcall(require, "nvim-autopairs")
-    if not status_ok then
-      return
-    end
+    local npairs = require("nvim-autopairs")
+    
     npairs.setup({
       -- Basic settings
       check_ts = true,
@@ -46,11 +44,9 @@ return {
     })
 
     -- CMP integration
-    local cmp_status, cmp = pcall(require, "cmp")
-    if cmp_status then
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end
+    local cmp = require("cmp")
+    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
     -- Custom rules for Django templates
     local Rule = require("nvim-autopairs.rule")
@@ -78,6 +74,23 @@ return {
         :with_pair(cond.not_before_regex("{# ", 1))
         :with_pair(cond.not_inside_quote())
         :with_move(cond.none()),
+
+      -- JSX/React fragment tags: <> </>
+      Rule("<>", "</>", { "javascriptreact", "typescriptreact" })
+        :with_pair(cond.not_inside_quote())
+        :with_move(cond.none()),
+
+      -- Markdown code blocks: ``` ```
+      Rule("```", "```", "markdown")
+        :with_pair(cond.not_inside_quote())
+        :with_move(function(opts)
+          return opts.next_char ~= "`"
+        end),
+
+      -- Python f-strings: f"" (smart quotes)
+      Rule('f"', '"', "python")
+        :with_pair(cond.not_after_text("f"))
+        :with_pair(cond.not_inside_quote()),
     })
   end
 }
