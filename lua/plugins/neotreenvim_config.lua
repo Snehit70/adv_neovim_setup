@@ -39,7 +39,7 @@ return {
         position = "50%",
       },
       mappings = {
-        ["<cr>"] = "toggle_node",
+        ["<cr>"] = "open",
         ["<esc>"] = "cancel",
         ["q"] = "close_window",
         ["a"] = "add",

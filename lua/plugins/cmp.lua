@@ -18,6 +18,9 @@ return {
     
     require("luasnip.loaders.from_vscode").lazy_load()
     
+    -- Load custom C++ snippets
+    luasnip.add_snippets("cpp", require("snippets.cpp"))
+    
     vim.opt.completeopt = { "menu", "menuone", "noselect" }
     vim.opt.pumheight = 12 -- VSCode-like height
 
