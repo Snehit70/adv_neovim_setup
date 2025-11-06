@@ -54,17 +54,6 @@ return {
         })
       end
 
-      -- Codelens support
-      if client.server_capabilities.codeLensProvider then
-        map("n", "<leader>cl", vim.lsp.codelens.run, "Run CodeLens")
-        
-        -- Auto-refresh codelens
-        vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-          buffer = bufnr,
-          callback = vim.lsp.codelens.refresh,
-        })
-      end
-
       -- Semantic tokens (enable semantic highlighting)
       if client.server_capabilities.semanticTokensProvider then
         vim.lsp.semantic_tokens.start(bufnr, client.id)
