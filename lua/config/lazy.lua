@@ -23,7 +23,10 @@ require("lazy").setup({
     lazy = false, -- should plugins be lazy-loaded?
     version = false, -- always use the latest git commit
   },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { 
+    enabled = true,
+    notify = false, -- Check for updates in background but don't notify
+  }, -- automatically check for plugin updates
   performance = {
     rtp = {
       disabled_plugins = {

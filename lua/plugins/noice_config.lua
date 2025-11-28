@@ -74,6 +74,18 @@ return {
         enabled = true,
         view = "notify",
       },
+      
+      -- Filter out annoying messages
+      routes = {
+        {
+          filter = {
+            event = "msg_show",
+            kind = "",
+            find = "written",
+          },
+          opts = { skip = true },
+        },
+      },
 
       lsp = {
         -- Override markdown rendering for hover docs
