@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
-  lazy = false,
+  cmd = "Telescope",
+  version = false, -- telescope did only one release, so use HEAD for now
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
@@ -11,6 +12,15 @@ return {
         require("telescope").load_extension("fzf")
       end,
     },
+  },
+  keys = {
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+    { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
+    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+    { "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Commands" },
+    { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
   },
   config = function()
     local telescope = require("telescope")
@@ -141,28 +151,7 @@ return {
         },
       },
     })
-
-    -- Keymaps for the pickers you actually use
-    local keymap = vim.keymap.set
-    local keymap_opts = { noremap = true, silent = true }
     
-    -- Find files (your main picker)
-    keymap("n", "<leader>ff", builtin.find_files, 
-      vim.tbl_extend("force", keymap_opts, { desc = "Find files" }))
-    
-    -- Live grep (search text in files)
-    keymap("n", "<leader>fg", builtin.live_grep, 
-      vim.tbl_extend("force", keymap_opts, { desc = "Live grep" }))
-    
-    -- Nvim config files (your custom picker)
-    keymap("n", "<leader>fr", function()
-      builtin.find_files({
-        prompt_title = "󰈔 Neovim Config Files",
-        cwd = vim.fn.stdpath("config"),
-        hidden = true,
-        follow = true,
-        file_ignore_patterns = { ".git/" }, -- Only ignore .git in config
-      })
-    end, vim.tbl_extend("force", keymap_opts, { desc = "Nvim config files" }))
+    -- Note: Keymaps are now handled by lazy.nvim 'keys' table above
   end,
 }
