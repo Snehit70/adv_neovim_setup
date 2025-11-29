@@ -4,8 +4,8 @@ local t = ls.text_node
 local i = ls.insert_node
 
 return {
-  -- Main boilerplate: type `!` and press Tab
-  s("!", {
+  -- Main boilerplate: type `!simple` and press Tab
+  s("!simple", {
     t({ "#include <iostream>", "" }),
     t({ "using namespace std;", "" }),
     t({ "", "int main() {", "    " }),
@@ -22,7 +22,7 @@ return {
   }),
 
   -- Competitive programming template
-  s("!comp", {
+  s("!", {
     t({ "#include <bits/stdc++.h>", "" }),
     t({ "using namespace std;", "" }),
     t({ "", "int main() {", "    ios_base::sync_with_stdio(false);", "    cin.tie(NULL);", "    " }),

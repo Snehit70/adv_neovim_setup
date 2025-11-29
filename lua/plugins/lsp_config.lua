@@ -130,7 +130,13 @@ return {
     }
 
     mason_lspconfig.setup({
-      ensure_installed = {},
+      ensure_installed = {
+        "lua_ls",
+        "pyright",
+        "ts_ls",
+        "volar",
+        "clangd",
+      },
       handlers = {
         function(server_name)
           local opts = {
@@ -172,8 +178,27 @@ return {
               },
             }
           
+          -- Vue (volar)
+          elseif server_name == "volar" then
+            opts.filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" }
+            opts.init_options = {
+              vue = {
+                hybridMode = false,
+              },
+            }
+
           -- TypeScript/JavaScript
           elseif server_name == "ts_ls" or server_name == "tsserver" then
+            opts.init_options = {
+              plugins = {
+                {
+                  name = "@vue/typescript-plugin",
+                  location = require("mason-registry").get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server",
+                  languages = { "vue" },
+                },
+              },
+            }
+            opts.filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
             opts.settings = {
               typescript = {
                 inlayHints = {

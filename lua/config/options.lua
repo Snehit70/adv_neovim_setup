@@ -44,3 +44,13 @@ opt.splitbelow = true -- Split windows below (standard behavior)
 opt.swapfile = false -- Disable swap files
 opt.undofile = true -- Enable persistent undo
 opt.undodir = vim.fn.stdpath("data") .. "/undodir" -- Set undo directory
+
+-- Force 2 spaces for C/C++
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp" },
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
+  end,
+})
