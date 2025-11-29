@@ -8,16 +8,16 @@ return {
     "nvim-lua/plenary.nvim", -- required by telescope
     "MunifTanjim/nui.nvim",
     "nvim-tree/nvim-web-devicons", -- optional
-    -- "3rd/image.nvim", -- optional image support (uncomment if needed)
+    "3rd/image.nvim", -- optional image support
   },
   cmd = "Leet", -- Enable lazy loading via command
 
   opts = {
     -- Plugin configuration
     arg = "leetcode.nvim",
-    lang = "python3",
+    lang = "cpp",
     logging = true,
-    image_support = false, -- disable to enable description wrap
+    image_support = true, -- disable to enable description wrap
 
     -- LeetCode China configuration
     cn = {

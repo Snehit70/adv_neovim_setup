@@ -134,7 +134,7 @@ return {
         "lua_ls",
         "pyright",
         "ts_ls",
-        "volar",
+        "vue_ls",
         "clangd",
       },
       handlers = {
@@ -179,7 +179,7 @@ return {
             }
           
           -- Vue (volar)
-          elseif server_name == "volar" then
+          elseif server_name == "vue_ls" then
             opts.filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" }
             opts.init_options = {
               vue = {
