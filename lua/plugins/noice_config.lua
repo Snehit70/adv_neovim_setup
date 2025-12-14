@@ -74,18 +74,6 @@ return {
         enabled = true,
         view = "notify",
       },
-      
-      -- Filter out annoying messages
-      routes = {
-        {
-          filter = {
-            event = "msg_show",
-            kind = "",
-            find = "written",
-          },
-          opts = { skip = true },
-        },
-      },
 
       lsp = {
         -- Override markdown rendering for hover docs
@@ -111,7 +99,7 @@ return {
         lsp_doc_border = true, -- Add border to LSP docs
       },
 
-      -- Routes to control message handling
+      -- Routes to control message handling (filter noisy messages)
       routes = {
         {
           filter = {
@@ -135,28 +123,60 @@ return {
           },
           opts = { skip = true }, -- Skip search wrap messages
         },
+        {
+          filter = {
+            event = "msg_show",
+            kind = "",
+            find = "more line",
+          },
+          opts = { skip = true }, -- Skip "X more lines" messages
+        },
+        {
+          filter = {
+            event = "msg_show",
+            kind = "",
+            find = "fewer line",
+          },
+          opts = { skip = true }, -- Skip "X fewer lines" messages
+        },
+        {
+          filter = {
+            event = "msg_show",
+            kind = "",
+            find = "yanked",
+          },
+          opts = { skip = true }, -- Skip yank messages
+        },
+        {
+          -- Skip LSP progress spam
+          filter = {
+            event = "lsp",
+            kind = "progress",
+            cond = function(message)
+              local client = vim.tbl_get(message.opts, "progress", "client")
+              -- Skip noisy LSP progress from specific servers
+              return client == "null-ls" or client == "copilot"
+            end,
+          },
+          opts = { skip = true },
+        },
       },
     })
 
-    -- Optional: Set up nvim-notify for better notifications
+    -- Compact nvim-notify setup
     local notify_ok, notify = pcall(require, "notify")
     if notify_ok then
       notify.setup({
         background_colour = "#000000",
         fps = 30,
-        icons = {
-          DEBUG = "",
-          ERROR = "",
-          INFO = "",
-          TRACE = "✎",
-          WARN = ""
-        },
-        level = 2,
-        minimum_width = 50,
-        render = "default",
-        stages = "fade_in_slide_out",
-        timeout = 3000,
-        top_down = true
+        render = "minimal",       -- Compact: just icon + message, no title bar
+        stages = "fade",          -- Simple fade (faster than slide)
+        timeout = 1500,           -- 1.5 seconds
+        top_down = true,
+        max_width = 50,           -- Narrower notifications
+        max_height = 3,           -- Shorter notifications
+        minimum_width = 10,       -- Smaller minimum
+        level = vim.log.levels.INFO, -- Only show INFO and above
       })
       vim.notify = notify
     end

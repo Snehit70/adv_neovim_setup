@@ -1,6 +1,7 @@
 -- lua/plugins/lsp.lua
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" }, -- Lazy load: only when opening files
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -41,17 +42,6 @@ return {
         map("n", "<leader>th", function()
           vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
         end, "Toggle Inlay Hints")
-      end
-
-      -- Codelens support
-      if client.server_capabilities.codeLensProvider then
-        map("n", "<leader>cl", vim.lsp.codelens.run, "Run CodeLens")
-        
-        -- Auto-refresh codelens
-        vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-          buffer = bufnr,
-          callback = vim.lsp.codelens.refresh,
-        })
       end
 
       -- Semantic tokens (enable semantic highlighting)

@@ -31,7 +31,7 @@ return {
       c = { "clang-format" },
     },
     format_on_save = {
-      timeout_ms = 500,
+      timeout_ms = 3000, -- Increased to prevent prettier/formatter timeouts
       lsp_fallback = true,
     },
   },

@@ -22,7 +22,7 @@ return {
       if vim.v.hlsearch == 0 then
         return ""
       end
-      local ok, result = pcall(vim.fn.searchcount, { maxcount = 999, timeout = 500 })
+      local ok, result = pcall(vim.fn.searchcount, { maxcount = 999, timeout = 100 })
       if not ok or result.incomplete == 1 or result.total == 0 then
         return ""
       end
@@ -128,23 +128,6 @@ return {
       return " " .. buffers
     end
 
-    -- LSP progress indicator
-    local function lsp_progress()
-      local messages = vim.lsp.util.get_progress_messages()
-      if #messages == 0 then return "" end
-      local status = {}
-      for _, msg in ipairs(messages) do
-        local title = msg.title or ""
-        local percentage = msg.percentage or 0
-        if percentage > 0 then
-          table.insert(status, string.format("%s (%.0f%%)", title, percentage))
-        else
-          table.insert(status, title)
-        end
-      end
-      return table.concat(status, " | ")
-    end
-
     -- Dynamic color helpers (use theme colors or fallback to hex)
     local function get_color(group, attr)
       local hl = vim.api.nvim_get_hl(0, { name = group })
@@ -245,10 +228,6 @@ return {
         
         -- Right side: Useful info
         lualine_x = { 
-          {
-            lsp_progress,
-            color = { fg = get_color("DiagnosticInfo", "fg") or "#89dceb" },
-          },
           {
             lazy_updates,
             color = { fg = get_color("DiagnosticWarn", "fg") or "#fab387" },

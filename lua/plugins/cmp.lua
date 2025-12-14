@@ -30,39 +30,6 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
-      formatting = {
-        format = function(entry, vim_item)
-          local icons = {
-            Text = "",
-            Method = "󰆧",
-            Function = "󰊕",
-            Constructor = "",
-            Field = "󰇽",
-            Variable = "󰂡",
-            Class = "󰠱",
-            Interface = "",
-            Module = "",
-            Property = "󰜢",
-            Unit = "",
-            Value = "󰎠",
-            Enum = "",
-            Keyword = "󰌋",
-            Snippet = "",
-            Color = "󰏘",
-            File = "󰈙",
-            Reference = "",
-            Folder = "󰉋",
-            EnumMember = "",
-            Constant = "󰏿",
-            Struct = "",
-            Event = "",
-            Operator = "󰆕",
-            TypeParameter = "󰅲",
-          }
-          vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
-          return vim_item
-        end,
-      },
       -- VSCode-like keybindings - Enter WORKS!
       mapping = {
         -- ENTER accepts the highlighted suggestion (like VSCode)
