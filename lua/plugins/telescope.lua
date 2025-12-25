@@ -122,8 +122,8 @@ return {
           "%.temp$",
         },
         
-        -- Search configuration
-        vimgrep_arguments = {
+        -- Search configuration (with fallback if rg not available)
+        vimgrep_arguments = vim.fn.executable("rg") == 1 and {
           "rg",
           "--color=never",
           "--no-heading",
@@ -133,15 +133,17 @@ return {
           "--smart-case",
           "--hidden", -- Search hidden files
           "--glob=!.git/*", -- But exclude .git
-        },
+        } or nil,
       },
       
       pickers = {
         find_files = {
           hidden = true, -- Show hidden files
           follow = true, -- Follow symlinks
-          -- Use fd if available for better performance
-          find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".git" },
+          -- Use fd if available for better performance, fallback to default find
+          find_command = vim.fn.executable("fd") == 1
+            and { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".git" }
+            or nil,
         },
         
         live_grep = {

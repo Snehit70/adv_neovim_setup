@@ -29,10 +29,11 @@ require("lazy").setup({
   }, -- automatically check for plugin updates
   performance = {
     rtp = {
+      -- Disable unused built-in plugins for faster startup
       disabled_plugins = {
         "gzip",
         "matchit",
-        "matchparen",
+        "matchparen", -- Disabled: rainbow-delimiters provides bracket highlighting via treesitter
         "netrwPlugin",
         "tarPlugin",
         "tohtml",

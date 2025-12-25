@@ -50,7 +50,6 @@ describe("Plugin Configuration", function()
       "bufferline_config.lua",
       "cmp.lua",
       "colorscheme.lua",
-      "comment_config.lua",
       "gitsigns_config.lua",
       "indent_blankline_config.lua",
       "lsp_config.lua",

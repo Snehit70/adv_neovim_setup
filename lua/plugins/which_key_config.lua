@@ -10,10 +10,6 @@ return {
 				{ "<leader>b", group = "󰓩 buffers" },
 				{ "<leader>bc", desc = "Close Buffer" },
 				{ "<leader>bo", desc = "Close Others" },
-				{ "<leader>bp", desc = "Pick Buffer" },
-				{ "<leader>br", desc = "Close Right" },
-				{ "<leader>bl", desc = "Close Left" },
-				{ "<leader>be", desc = "Buffer Explorer" },
 
 				-- Code
 				{ "<leader>c", group = " code" },
@@ -98,20 +94,14 @@ return {
 				{ "<leader>mo", desc = "Open Preview" },
 				{ "<leader>mc", desc = "Close Preview" },
 
-				-- Search/Session
-				{ "<leader>s", group = " search/session" },
-				{ "<leader>ss", desc = "Save Session" },
-				{ "<leader>sr", desc = "Restore Session" },
-				{ "<leader>sd", desc = "Delete Session" },
+				-- Search
+				{ "<leader>s", group = " search" },
 				{ "<leader>sf", desc = "Search Files" },
 				{ "<leader>sg", desc = "Search Grep" },
 
 				-- Terminal/Toggle
 				{ "<leader>t", group = " terminal/toggle" },
 				{ "<leader>tt", desc = "Toggle Terminal" },
-				{ "<leader>th", desc = "Terminal Horizontal" },
-				{ "<leader>tv", desc = "Terminal Vertical" },
-				{ "<leader>tf", desc = "Terminal Float" },
 
 				-- Window Operations
 				{ "<leader>w", group = " windows" },

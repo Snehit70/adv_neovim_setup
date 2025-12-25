@@ -5,7 +5,7 @@ return {
   dependencies = {
     "hiphish/rainbow-delimiters.nvim",
     "nvim-treesitter/nvim-treesitter-textobjects",
-    "windwp/nvim-ts-autotag",
+    -- nvim-ts-autotag has its own config in autotag_config.lua
   },
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -90,7 +90,7 @@ return {
           },
         },
       },
-      autopairs = { enable = true },
+      autopairs = { enable = false }, -- Disabled: nvim-autopairs plugin handles this
     })
 
     vim.opt.foldmethod = "expr"
@@ -99,7 +99,7 @@ return {
 
     vim.g.rainbow_delimiters = {
       strategy = {
-        [''] = require('rainbow-delimiters').strategy['global'],
+        [''] = require('rainbow-delimiters').strategy['local'], -- Better performance than global
       },
       query = {
         [''] = 'rainbow-delimiters',

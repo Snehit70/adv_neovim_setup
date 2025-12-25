@@ -20,10 +20,16 @@ return {
             key = "f",
           },
           {
-            desc = " Apps",
+            desc = " Apps",
             group = "DiagnosticHint",
-            action = "Telescope app",
+            action = "Telescope find_files",
             key = "a",
+          },
+          {
+            desc = " nvim config",
+            group = "Number",
+            action = "Telescope find_files cwd=~/.config/nvim",
+            key = "d",
           },
           {
             desc = " dotfiles",

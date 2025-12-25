@@ -162,23 +162,5 @@ return {
         },
       },
     })
-
-    -- Compact nvim-notify setup
-    local notify_ok, notify = pcall(require, "notify")
-    if notify_ok then
-      notify.setup({
-        background_colour = "#000000",
-        fps = 30,
-        render = "minimal",       -- Compact: just icon + message, no title bar
-        stages = "fade",          -- Simple fade (faster than slide)
-        timeout = 1500,           -- 1.5 seconds
-        top_down = true,
-        max_width = 50,           -- Narrower notifications
-        max_height = 3,           -- Shorter notifications
-        minimum_width = 10,       -- Smaller minimum
-        level = vim.log.levels.INFO, -- Only show INFO and above
-      })
-      vim.notify = notify
-    end
   end,
 }

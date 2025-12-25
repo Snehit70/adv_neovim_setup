@@ -168,9 +168,9 @@ return {
               },
             }
           
-          -- Vue (volar)
+          -- Vue (volar) - only handles .vue files
           elseif server_name == "vue_ls" then
-            opts.filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" }
+            opts.filetypes = { "vue" } -- Only handle .vue files
             opts.init_options = {
               vue = {
                 hybridMode = false,
@@ -179,16 +179,29 @@ return {
 
           -- TypeScript/JavaScript
           elseif server_name == "ts_ls" or server_name == "tsserver" then
-            opts.init_options = {
+            -- Safely get vue-language-server path for Vue support
+            local vue_plugin_path = nil
+            local mason_ok, mason_registry = pcall(require, "mason-registry")
+            if mason_ok then
+              local vue_ok, vue_pkg = pcall(function()
+                return mason_registry.get_package("vue-language-server"):get_install_path()
+              end)
+              if vue_ok then
+                vue_plugin_path = vue_pkg .. "/node_modules/@vue/language-server"
+              end
+            end
+
+            opts.init_options = vue_plugin_path and {
               plugins = {
                 {
                   name = "@vue/typescript-plugin",
-                  location = require("mason-registry").get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server",
+                  location = vue_plugin_path,
                   languages = { "vue" },
                 },
               },
-            }
-            opts.filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
+            } or {}
+            -- Exclude .vue files - handled by vue_ls
+            opts.filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" }
             opts.settings = {
               typescript = {
                 inlayHints = {

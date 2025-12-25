@@ -1,5 +1,5 @@
 -- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Custom keymaps for this Neovim configuration
 
 local map = vim.keymap.set
 
@@ -32,14 +32,7 @@ map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-
--- Buffer management (matching your WhichKey config)
-map("n", "<leader>bc", "<cmd>bd<cr>", { desc = "Close Buffer" })
-map("n", "<leader>bo", "<cmd>%bd|e#|bd#<cr>", { desc = "Close Others" })
--- Note: <leader>bp (Pick Buffer) is usually handled by Telescope or Bufferline
--- Note: <leader>br/bl (Close Right/Left) usually requires a specific function or plugin support (like bufferline)
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -59,16 +52,3 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
 -- quit
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
-
--- Explorer (NeoTree) - Matching your WhichKey <leader>e
-map("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle Explorer" })
-map("n", "<leader>E", "<cmd>Neotree focus<CR>", { desc = "Focus Explorer" })
-
--- Git (LazyGit if available, or standard git commands)
--- Assuming you might want LazyGit since it's popular, but sticking to standard for now
-map("n", "<leader>gg", "<cmd>!git status<CR>", { desc = "Git Status" })
-
--- Floating Terminal (using toggleterm if installed, or standard)
--- You have toggleterm_config.lua, so let's use it if we can, but usually that has its own mappings.
--- Adding a simple terminal toggle just in case
-map("n", "<leader>tt", "<cmd>ToggleTerm direction=float<cr>", { desc = "Float Terminal" })

@@ -63,12 +63,11 @@ return {
         if buf.name:match("%.md$") then
           return vim.fn.fnamemodify(buf.name, ":t:r")
         end
-        -- Truncate long paths for config files
+        -- Truncate long paths for config files (cross-platform)
         if buf.name:match("%.config") or buf.name:match("%.nvim") then
-          local parts = vim.split(buf.name, "/")
-          if #parts > 3 then
-            return "…/" .. parts[#parts-1] .. "/" .. parts[#parts]
-          end
+          local parent = vim.fn.fnamemodify(buf.name, ":h:t")
+          local filename = vim.fn.fnamemodify(buf.name, ":t")
+          return "…/" .. parent .. "/" .. filename
         end
         -- Show just filename for others
         return vim.fn.fnamemodify(buf.name, ":t")
