@@ -8,25 +8,25 @@ return {
   s("!simple", {
     t({ "#include <iostream>", "" }),
     t({ "using namespace std;", "" }),
-    t({ "", "int main() {", "    " }),
+    t({ "", "int main() {", "  " }),
     i(1, "// Your code here"),
-    t({ "", "    return 0;", "}" }),
+    t({ "", "  return 0;", "}" }),
   }),
 
   -- Alternative without namespace
   s("!std", {
     t({ "#include <iostream>", "" }),
-    t({ "", "int main() {", "    " }),
+    t({ "", "int main() {", "  " }),
     i(1, "// Your code here"),
-    t({ "", "    return 0;", "}" }),
+    t({ "", "  return 0;", "}" }),
   }),
 
   -- Competitive programming template
   s("!", {
     t({ "#include <bits/stdc++.h>", "" }),
     t({ "using namespace std;", "" }),
-    t({ "", "int main() {", "    ios_base::sync_with_stdio(false);", "    cin.tie(NULL);", "    " }),
+    t({ "", "int main() {", "  ios_base::sync_with_stdio(false);", "  cin.tie(NULL);", "  " }),
     i(1, "// Your code here"),
-    t({ "", "    return 0;", "}" }),
+    t({ "", "  return 0;", "}" }),
   }),
 }

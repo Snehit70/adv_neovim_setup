@@ -27,8 +27,14 @@ return {
       -- Essential LSP Keymaps (keeping only what you use)
       map("n", "<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
       map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Actions")
+      -- Use Conform for formatting (unified formatter)
       map("n", "<leader>cf", function()
-        vim.lsp.buf.format({ async = true })
+        local conform_ok, conform = pcall(require, "conform")
+        if conform_ok then
+          conform.format({ async = true, lsp_fallback = true })
+        else
+          vim.lsp.buf.format({ async = true })
+        end
       end, "Format Code")
 
       -- Diagnostic Keymaps with navigation
@@ -123,8 +129,10 @@ return {
       ensure_installed = {
         "lua_ls",
         "pyright",
+        "ruff",    -- Python linting/quickfixes (Ruff LSP)
         "ts_ls",
         "vue_ls",
+        "eslint",  -- JS/TS/Vue linting
         "clangd",
       },
       handlers = {
@@ -276,6 +284,32 @@ return {
               "--completion-style=detailed",
               "--function-arg-placeholders",
               "--fallback-style=llvm",
+            }
+
+          -- Ruff (Python linting/quickfixes) - formatting handled by Conform
+          elseif server_name == "ruff" then
+            opts.on_attach = function(client, bufnr)
+              -- Disable Ruff's formatting capability; Conform handles formatting
+              client.server_capabilities.documentFormattingProvider = false
+              client.server_capabilities.documentRangeFormattingProvider = false
+              -- Call the shared on_attach for keymaps
+              on_attach(client, bufnr)
+            end
+
+          -- ESLint (JS/TS/Vue linting) - formatting handled by Conform/Prettier
+          elseif server_name == "eslint" then
+            opts.on_attach = function(client, bufnr)
+              -- Disable ESLint's formatting capability; Conform handles formatting
+              client.server_capabilities.documentFormattingProvider = false
+              client.server_capabilities.documentRangeFormattingProvider = false
+              -- Call the shared on_attach for keymaps
+              on_attach(client, bufnr)
+            end
+            opts.settings = {
+              -- Use flat config if available
+              experimental = {
+                useFlatConfig = nil, -- Auto-detect
+              },
             }
           end
 
