@@ -30,7 +30,7 @@ local root_markers = {
 local root_dir = vim.fs.root(0, root_markers) or vim.fn.getcwd()
 
 -- Project name for workspace
-local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
+local project_name = vim.fn.fnamemodify(root_dir, ":p:t")
 
 -- Workspace directory (persistent per-project)
 local workspace_dir = vim.fn.stdpath("data") .. "/jdtls-workspace/" .. project_name
@@ -63,7 +63,7 @@ if jdtls_paths and jdtls_paths.jar ~= "" then
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
     "-Dlog.protocol=true",
     "-Dlog.level=ALL",
-    "-Xmx1g",
+    "-Xmx2g",
     "--add-modules=ALL-SYSTEM",
     "--add-opens", "java.base/java.util=ALL-UNNAMED",
     "--add-opens", "java.base/java.lang=ALL-UNNAMED",
