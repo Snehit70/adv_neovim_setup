@@ -40,16 +40,14 @@ vim.fn.mkdir(workspace_dir, "p")
 
 -- Find jdtls installation (Mason or system)
 local function get_jdtls_paths()
-  local mason_registry_ok, mason_registry = pcall(require, "mason-registry")
-  if mason_registry_ok and mason_registry.is_installed("jdtls") then
-    local jdtls_pkg = mason_registry.get_package("jdtls")
-    local jdtls_path = jdtls_pkg:get_install_path()
+  local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+  local jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+  if jar ~= "" then
     return {
-      jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+      jar = jar,
       config = jdtls_path .. "/config_linux", -- Adjust for macOS: config_mac
     }
   end
-  -- Fallback: assume jdtls is in PATH with standard layout
   return nil
 end
 
