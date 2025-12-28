@@ -7,180 +7,144 @@ return {
 			{
 				mode = { "n", "v" },
 				-- Buffer Management
-				{ "<leader>b", group = "󰓩 buffers" },
+				{ "<leader>b", group = "buffers" },
 				{ "<leader>bc", desc = "Close Buffer" },
 				{ "<leader>bo", desc = "Close Others" },
 
 				-- Code
-				{ "<leader>c", group = " code" },
+				{ "<leader>c", group = "code" },
 				{ "<leader>cf", desc = "Format Code" },
 				{ "<leader>ca", desc = "Code Actions" },
-				{ "<leader>cl", desc = "Run CodeLens" },
-				{ "<leader>cu", desc = "Update Cache" },
 
 				-- Diagnostics/LSP
-				{ "<leader>d", desc = " Line Diagnostics" },
-				{ "<leader>q", desc = " Diagnostics List" },
-				{ "<leader>rn", desc = " Rename Symbol" },
+				{ "<leader>d", desc = "Line Diagnostics" },
+				{ "<leader>q", desc = "Diagnostics List" },
+				{ "<leader>rn", desc = "Rename Symbol" },
 
 				-- File/Find (Telescope)
-				{ "<leader>f", group = " telescope" },
+				{ "<leader>f", group = "telescope" },
 				{ "<leader>ff", desc = "Find Files" },
 				{ "<leader>fg", desc = "Live Grep" },
 				{ "<leader>fb", desc = "Find Buffers" },
 				{ "<leader>fh", desc = "Help Tags" },
-				{ "<leader>fo", desc = "Old Files" },
+				{ "<leader>fr", desc = "Recent Files" },
 				{ "<leader>fc", desc = "Find Commands" },
 				{ "<leader>fk", desc = "Find Keymaps" },
-				{ "<leader>fs", desc = "Grep String" },
-				{ "<leader>fr", desc = "Resume Last" },
-				{ "<leader>fm", desc = "Find Man Pages" },
+				{ "<leader>fn", desc = "New File" },
 
 				-- Git (Gitsigns + Telescope)
-				{ "<leader>g", group = " git" },
-				{ "<leader>gb", desc = " Full Blame" },
-				{ "<leader>gbl", desc = " Blame Line" },
-				{ "<leader>gbc", desc = " Buffer Commits" },
-				{ "<leader>gS", desc = " Stage Buffer" },
-				{ "<leader>gR", desc = " Reset Buffer" },
-				{ "<leader>gd", desc = " Diff This" },
-				{ "<leader>gdt", desc = " Diff This ~" },
-				{ "<leader>gD", desc = " Diff Float" },
-				{ "<leader>gt", desc = " Toggle Blame" },
-				{ "<leader>gts", desc = " Toggle Signs" },
-				{ "<leader>gtd", desc = " Toggle Deleted" },
-				{ "<leader>gf", desc = " Git Status" },
-				{ "<leader>gc", desc = " Git Commits" },
+				{ "<leader>g", group = "git" },
+				{ "<leader>gb", desc = "Full Blame" },
+				{ "<leader>gbl", desc = "Blame Line" },
+				{ "<leader>gbc", desc = "Buffer Commits" },
+				{ "<leader>gS", desc = "Stage Buffer" },
+				{ "<leader>gR", desc = "Reset Buffer" },
+				{ "<leader>gd", desc = "Diff This" },
+				{ "<leader>gdt", desc = "Diff This ~" },
+				{ "<leader>gD", desc = "Diff Float" },
+				{ "<leader>gt", desc = "Toggle Blame" },
+				{ "<leader>gts", desc = "Toggle Signs" },
+				{ "<leader>gtd", desc = "Toggle Deleted" },
+				{ "<leader>gf", desc = "Git Status" },
+				{ "<leader>gc", desc = "Git Commits" },
 
 				-- Explorer
-				{ "<leader>e", desc = " File Explorer" },
-				{ "<leader>E", desc = " Focus Explorer" },
-				{ "<leader>ge", desc = " Git Status Explorer" },
-				{ "<leader>se", desc = " Symbols Explorer" },
+				{ "<leader>e", desc = "File Explorer" },
+				{ "<leader>E", desc = "Focus Explorer" },
 
 				-- LeetCode
-				{ "<leader>l", group = " leetcode" },
+				{ "<leader>l", group = "leetcode" },
 				{ "<leader>lq", desc = "LeetCode Menu" },
-				{ "<leader>ll", group = " list" },
-				{ "<leader>lll", desc = "List Problems" },
+				{ "<leader>ll", desc = "List Problems" },
 				{ "<leader>lle", desc = "Easy Problems" },
 				{ "<leader>llm", desc = "Medium Problems" },
 				{ "<leader>llh", desc = "Hard Problems" },
 				{ "<leader>llg", desc = "Change Language" },
-				{ "<leader>llst", desc = "Last Submission" },
-				{ "<leader>lt", desc = " Test Solution" },
+				{ "<leader>lt", desc = "Test Solution" },
 				{ "<leader>ltb", desc = "Open Tabs" },
-				{ "<leader>ls", desc = " Submit Solution" },
-				{ "<leader>lr", desc = " Run Solution" },
+				{ "<leader>ls", desc = "Submit Solution" },
+				{ "<leader>lr", desc = "Run Solution" },
 				{ "<leader>lrn", desc = "Random Problem" },
 				{ "<leader>lrs", desc = "Restore Layout" },
 				{ "<leader>lrst", desc = "Reset Code" },
-				{ "<leader>li", desc = " Info" },
+				{ "<leader>li", desc = "Info" },
 				{ "<leader>linj", desc = "Re-inject Code" },
-				{ "<leader>lc", group = " console/cache" },
-				{ "<leader>lcc", desc = "Open Console" },
+				{ "<leader>lc", desc = "Console" },
 				{ "<leader>lcu", desc = "Update Cache" },
-				{ "<leader>ld", group = " description/daily" },
-				{ "<leader>ldd", desc = "Toggle Description" },
+				{ "<leader>ld", desc = "Toggle Description" },
 				{ "<leader>ldt", desc = "Toggle Stats" },
 				{ "<leader>ldy", desc = "Daily Problem" },
-				{ "<leader>ly", desc = " Yank Code" },
-				{ "<leader>lo", desc = " Open in Browser" },
-				{ "<leader>lx", desc = " Exit LeetCode" },
+				{ "<leader>ly", desc = "Yank Code" },
+				{ "<leader>lo", desc = "Open in Browser" },
+				{ "<leader>lx", desc = "Exit LeetCode" },
+				{ "<leader>llst", desc = "Last Submission" },
 
 				-- Markdown
-				{ "<leader>m", group = " markdown" },
+				{ "<leader>m", group = "markdown" },
 				{ "<leader>mp", desc = "Toggle Preview" },
 				{ "<leader>mo", desc = "Open Preview" },
 				{ "<leader>mc", desc = "Close Preview" },
-
-				-- Search
-				{ "<leader>s", group = " search" },
-				{ "<leader>sf", desc = "Search Files" },
-				{ "<leader>sg", desc = "Search Grep" },
+				{ "<leader>mg", desc = "Glow Preview" },
 
 				-- Terminal/Toggle
-				{ "<leader>t", group = " terminal/toggle" },
+				{ "<leader>t", group = "terminal/toggle" },
 				{ "<leader>tt", desc = "Toggle Terminal" },
+				{ "<leader>th", desc = "Toggle Inlay Hints" },
 
-				-- Window Operations
-				{ "<leader>w", group = " windows" },
-				{ "<leader>ww", desc = "Other Window" },
-				{ "<leader>wd", desc = "Delete Window" },
-				{ "<leader>ws", desc = "Split Below" },
-				{ "<leader>wv", desc = "Split Right" },
-				{ "<leader>wh", desc = "Focus Left" },
-				{ "<leader>wj", desc = "Focus Down" },
-				{ "<leader>wk", desc = "Focus Up" },
-				{ "<leader>wl", desc = "Focus Right" },
-				{ "<leader>w=", desc = "Equal Size" },
-				{ "<leader>w|", desc = "Max Width" },
-				{ "<leader>w_", desc = "Max Height" },
+				-- Swap (Treesitter)
+				{ "<leader>a", desc = "Swap Param Next" },
+				{ "<leader>A", desc = "Swap Param Prev" },
 
-				-- Trouble/Diagnostics
-				{ "<leader>x", group = " trouble" },
-				{ "<leader>xx", desc = "Toggle Trouble" },
-				{ "<leader>xw", desc = "Workspace Diagnostics" },
-				{ "<leader>xd", desc = "Document Diagnostics" },
-				{ "<leader>xq", desc = "Quickfix" },
-				{ "<leader>xl", desc = "Location List" },
-				{ "<leader>xr", desc = "LSP References" },
-
-				-- Help
-				{ "<leader>?", desc = " Which-key Help" },
-				{ "<leader>/", desc = " Comment Toggle" },
+				-- Other
+				{ "<leader>L", desc = "Lazy (Plugin Manager)" },
+				{ "<leader>qq", desc = "Quit All" },
+				{ "<leader>`", desc = "Switch to Alt Buffer" },
+				{ "<leader>?", desc = "Which-key Help" },
 			},
 			{
 				mode = { "n" },
 				-- Navigation
-				{ "[", group = " prev" },
+				{ "[", group = "prev" },
 				{ "[b", desc = "Previous Buffer" },
 				{ "[d", desc = "Previous Diagnostic" },
-				{ "[g", desc = "Previous Git Hunk" },
-				{ "[q", desc = "Previous Quickfix" },
-				{ "[t", desc = "Previous Todo" },
-				
-				{ "]", group = " next" },
+				{ "[m", desc = "Previous Function" },
+				{ "[a", desc = "Previous Parameter" },
+				{ "[[", desc = "Previous Class" },
+
+				{ "]", group = "next" },
 				{ "]b", desc = "Next Buffer" },
 				{ "]d", desc = "Next Diagnostic" },
-				{ "]g", desc = "Next Git Hunk" },
-				{ "]q", desc = "Next Quickfix" },
-				{ "]t", desc = "Next Todo" },
+				{ "]m", desc = "Next Function" },
+				{ "]a", desc = "Next Parameter" },
+				{ "]]", desc = "Next Class" },
 
 				-- Goto (LSP)
-				{ "g", group = " goto" },
+				{ "g", group = "goto" },
 				{ "gd", desc = "Go to Definition" },
 				{ "gD", desc = "Go to Declaration" },
 				{ "gr", desc = "Go to References" },
 				{ "gi", desc = "Go to Implementation" },
-				{ "gt", desc = "Go to Type Definition" },
-				
-				-- Comment
-				{ "gc", group = " comment line" },
-				{ "gb", group = " comment block" },
-				{ "gco", desc = "Comment Above" },
-				{ "gcO", desc = "Comment Below" },
-				{ "gcA", desc = "Comment End" },
+
+				-- Flash
+				{ "s", desc = "Flash Jump" },
+				{ "S", desc = "Flash Treesitter" },
 
 				-- Other useful mappings
-				{ "K", desc = " Hover Docs" },
-				{ "<C-k>", desc = " Signature Help" },
-				{ "<Tab>", desc = " Next Buffer" },
-				{ "<S-Tab>", desc = " Previous Buffer" },
-				
-				-- LSP
-				{ "gl", desc = " Line Diagnostics" },
-				
+				{ "K", desc = "Hover Docs" },
+				{ "<C-k>", desc = "Signature Help" },
+				{ "<Tab>", desc = "Next Buffer" },
+				{ "<S-Tab>", desc = "Previous Buffer" },
+
 				-- Marks
-				{ "m", group = " marks" },
-				{ "'", group = " jump to mark" },
-				{ "`", group = " jump to mark (exact)" },
-				
+				{ "m", group = "marks" },
+				{ "'", group = "jump to mark" },
+				{ "`", group = "jump to mark (exact)" },
+
 				-- Registers
-				{ '"', group = " registers" },
-				
+				{ '"', group = "registers" },
+
 				-- Window commands
-				{ "<C-w>", group = " windows" },
+				{ "<C-w>", group = "windows" },
 				{ "<C-w>s", desc = "Split Below" },
 				{ "<C-w>v", desc = "Split Right" },
 				{ "<C-w>c", desc = "Close Window" },
@@ -197,9 +161,9 @@ return {
 				{ "<C-w>-", desc = "Decrease Height" },
 				{ "<C-w>>", desc = "Increase Width" },
 				{ "<C-w><", desc = "Decrease Width" },
-				
+
 				-- z-commands (folding, scrolling)
-				{ "z", group = " fold/scroll" },
+				{ "z", group = "fold/scroll" },
 				{ "za", desc = "Toggle Fold" },
 				{ "zA", desc = "Toggle Fold Recursive" },
 				{ "zc", desc = "Close Fold" },
@@ -215,24 +179,13 @@ return {
 			{
 				mode = { "v" },
 				-- Visual mode specific
-				{ "gc", desc = " Toggle Comment" },
-				{ "gb", desc = " Toggle Block Comment" },
-				{ "<leader>/", desc = " Comment Selection" },
-				{ "<", desc = " Decrease Indent" },
-				{ ">", desc = " Increase Indent" },
-				{ "J", desc = " Move Line Down" },
-				{ "K", desc = " Move Line Up" },
-				{ "p", desc = " Paste (keep register)" },
-			},
-			{
-				mode = { "x" },
-				-- Select mode
-				{ "<leader>", group = "󰘳 leader" },
+				{ "<", desc = "Decrease Indent" },
+				{ ">", desc = "Increase Indent" },
 			},
 			{
 				mode = { "i" },
 				-- Insert mode completions
-				{ "<C-x>", group = " completion" },
+				{ "<C-x>", group = "completion" },
 				{ "<C-x><C-f>", desc = "File Path" },
 				{ "<C-x><C-l>", desc = "Whole Line" },
 				{ "<C-x><C-o>", desc = "Omni Completion" },
@@ -242,23 +195,30 @@ return {
 			{
 				mode = { "o" },
 				-- Operator-pending mode
-				{ "i", group = " inside" },
-				{ "a", group = " around" },
+				{ "i", group = "inside" },
+				{ "a", group = "around" },
+				{ "r", desc = "Remote Flash" },
+			},
+			{
+				mode = { "o", "x" },
+				{ "R", desc = "Treesitter Search" },
+			},
+			{
+				mode = { "c" },
+				{ "<C-s>", desc = "Toggle Flash Search" },
 			},
 		},
 		preset = "modern",
-		delay = 200, -- Balanced response time
-		expand = 1, -- Automatic grouping
+		delay = 200,
+		expand = 1,
 		notify = true,
 		sort = { "local", "order", "group", "alphanum", "mod" },
 
-		-- Enhanced styling with icons
 		icons = {
-			breadcrumb = "»", -- symbol used in command line area
-			separator = "➜", -- symbol used between a key and it's label
-			group = "+", -- symbol prepended to a group
-			ellipsis = "…",
-			-- Custom icons for specific mappings
+			breadcrumb = ">>",
+			separator = "->",
+			group = "+",
+			ellipsis = "...",
 			mappings = true,
 			rules = false,
 			colors = true,
@@ -267,34 +227,33 @@ return {
 				Down = " ",
 				Left = " ",
 				Right = " ",
-				C = "󰘴 ",
-				M = "󰘵 ",
-				D = "󰘳 ",
-				S = "󰘶 ",
-				CR = "󰌑 ",
-				Esc = "󱊷 ",
-				ScrollWheelDown = "󱕐 ",
-				ScrollWheelUp = "󱕑 ",
-				NL = "󰌑 ",
-				BS = "󰁮",
-				Space = "󱁐 ",
-				Tab = "󰌒 ",
-				F1 = "󱊫",
-				F2 = "󱊬",
-				F3 = "󱊭",
-				F4 = "󱊮",
-				F5 = "󱊯",
-				F6 = "󱊰",
-				F7 = "󱊱",
-				F8 = "󱊲",
-				F9 = "󱊳",
-				F10 = "󱊴",
-				F11 = "󱊵",
-				F12 = "󱊶",
+				C = "C-",
+				M = "M-",
+				D = "D-",
+				S = "S-",
+				CR = "CR ",
+				Esc = "Esc ",
+				ScrollWheelDown = "ScrollDown ",
+				ScrollWheelUp = "ScrollUp ",
+				NL = "NL ",
+				BS = "BS ",
+				Space = "Space ",
+				Tab = "Tab ",
+				F1 = "F1",
+				F2 = "F2",
+				F3 = "F3",
+				F4 = "F4",
+				F5 = "F5",
+				F6 = "F6",
+				F7 = "F7",
+				F8 = "F8",
+				F9 = "F9",
+				F10 = "F10",
+				F11 = "F11",
+				F12 = "F12",
 			},
 		},
 
-		-- Enhanced window styling
 		win = {
 			border = "rounded",
 			padding = { 1, 2 },
@@ -302,7 +261,7 @@ return {
 			title_pos = "center",
 			zindex = 1000,
 			wo = {
-				winblend = 0, -- Transparency (0-100)
+				winblend = 0,
 			},
 		},
 
@@ -320,7 +279,6 @@ return {
 			filetypes = { "TelescopePrompt" },
 		},
 
-		-- Optimized triggers
 		triggers = {
 			{ "<auto>", mode = "nxso" },
 			{ "<leader>", mode = { "n", "v" } },
@@ -341,7 +299,7 @@ return {
 			function()
 				require("which-key").show({ global = false })
 			end,
-			desc = "󰘥 Buffer Local Keymaps (which-key)",
+			desc = "Buffer Local Keymaps (which-key)",
 		},
 		{
 			"<c-w><space>",

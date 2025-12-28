@@ -1,4 +1,4 @@
-# 🚀 Advanced Neovim Configuration
+# Advanced Neovim Configuration
 
 <div align="center">
 
@@ -8,19 +8,19 @@
 
 **A meticulously crafted, performance-obsessed Neovim setup built on principles of minimalism, predictability, and developer efficiency**
 
-[Features](#-features) • [Philosophy](#-philosophy--design-principles) • [Installation](#-installation) • [Keymaps](#️-key-mappings) • [Plugins](#-plugin-ecosystem)
+[Features](#-features) | [Philosophy](#-philosophy--design-principles) | [Installation](#-installation) | [Keymaps](#-key-mappings) | [Plugins](#-plugin-ecosystem)
 
 </div>
 
 ---
 
-## 🎯 Philosophy & Design Principles
+## Philosophy & Design Principles
 
 This configuration is built on a foundation of deliberate choices and strong opinions about what makes an effective development environment. Every plugin, keymap, and configuration option exists for a reason.
 
 ### Core Tenets
 
-#### 1. **Performance Above All Else** ⚡
+#### 1. **Performance Above All Else**
 
 > "Speed is a feature. A fast editor keeps you in flow state."
 
@@ -30,7 +30,7 @@ This configuration is built on a foundation of deliberate choices and strong opi
 - **Comprehensive ignore patterns** - Never search files you don't care about
 - **Async by default** - Operations that can be async, are async
 
-#### 2. **Predictability Over Magic** 🎯
+#### 2. **Predictability Over Magic**
 
 > "I want to know exactly what my editor will do, every time."
 
@@ -40,9 +40,9 @@ This configuration is built on a foundation of deliberate choices and strong opi
 - **Deterministic behavior** - Same input = same output, always
 - **Full control** - You command the editor, not the other way around
 
-#### 3. **Minimalism Through Intention** 🎨
+#### 3. **Minimalism Through Intention**
 
-> "Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away." - Antoine de Saint-Exupéry
+> "Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away." - Antoine de Saint-Exupery
 
 - **Essential plugins only** - If it doesn't solve a real problem, it's not here
 - **Single colorscheme** - Catppuccin, perfectly configured, no switching overhead
@@ -50,7 +50,7 @@ This configuration is built on a foundation of deliberate choices and strong opi
 - **Floating UI preference** - Clean workspace with context when needed
 - **Zero bloat** - No "nice to have" features that slow you down
 
-#### 4. **Keyboard-First Workflow** ⌨️
+#### 4. **Keyboard-First Workflow**
 
 > "The mouse is for when you give up."
 
@@ -60,7 +60,7 @@ This configuration is built on a foundation of deliberate choices and strong opi
 - **Which-key integration** - Never forget a keymap, discover as you type
 - **No mouse dependency** - Everything achievable from home row
 
-#### 5. **Developer Experience (DX) First** 🛠️
+#### 5. **Developer Experience (DX) First**
 
 > "Tools should get out of your way and let you build."
 
@@ -68,9 +68,9 @@ This configuration is built on a foundation of deliberate choices and strong opi
 - **Intelligent completion** - Context-aware, properly ordered, snippet-enabled
 - **Integrated problem solving** - LeetCode built-in for continuous learning
 - **Git workflow support** - Stage, diff, blame without leaving editor
-- **Multi-language ready** - Python, JavaScript, TypeScript, Lua, Rust, Go, C++ configured
+- **Multi-language ready** - Python, JavaScript, TypeScript, Lua, Vue, C++ configured
 
-#### 6. **Robustness & Reliability** 🛡️
+#### 6. **Robustness & Reliability**
 
 > "A tool that crashes is worse than no tool at all."
 
@@ -84,16 +84,16 @@ This configuration is built on a foundation of deliberate choices and strong opi
 
 To maintain clarity of purpose, this configuration deliberately excludes:
 
-- ❌ **AI code generation** - Unpredictable, privacy concerns, learning impediment
-- ❌ **Multiple colorschemes** - Cognitive overhead, testing complexity
-- ❌ **Experimental plugins** - Stability matters more than bleeding edge
-- ❌ **Every LSP server** - Install what you need via Mason
-- ❌ **Vim maximalism** - Not every plugin that exists needs to be here
-- ❌ **Mouse-first features** - You're here to learn keyboard efficiency
+- **AI code generation** - Unpredictable, privacy concerns, learning impediment
+- **Multiple colorschemes** - Cognitive overhead, testing complexity
+- **Experimental plugins** - Stability matters more than bleeding edge
+- **Every LSP server** - Install what you need via Mason
+- **Vim maximalism** - Not every plugin that exists needs to be here
+- **Mouse-first features** - You're here to learn keyboard efficiency
 
 ### Who This Config Is For
 
-✅ **You should use this if you:**
+**You should use this if you:**
 
 - Value performance and want a fast editor
 - Prefer traditional, predictable completions over AI suggestions
@@ -102,7 +102,7 @@ To maintain clarity of purpose, this configuration deliberately excludes:
 - Need a solid foundation to build upon
 - Are serious about becoming a more efficient developer
 
-❌ **This might not be for you if you:**
+**This might not be for you if you:**
 
 - Rely heavily on AI code generation
 - Prefer mouse-driven workflows
@@ -112,82 +112,72 @@ To maintain clarity of purpose, this configuration deliberately excludes:
 
 ---
 
-## ✨ Features
+## Features
 
-### 🚀 **Performance**
+### **Performance**
 
-- ⚡ Lightning fast startup (< 50ms)
-- 🔄 Lazy loading with intelligent event triggers
-- 📊 Optimized refresh rates and debouncing
-- 🎯 Async operations throughout
-- 🗂️ Smart file filtering and ignore patterns
+- Lightning fast startup (< 50ms)
+- Lazy loading with intelligent event triggers
+- Optimized refresh rates and debouncing
+- Async operations throughout
+- Smart file filtering and ignore patterns
 
-### 🎨 **User Interface**
+### **User Interface**
 
-- 🌙 Beautiful Catppuccin colorscheme (Mocha)
-- 📍 Clean statusline with essential information
-- 📑 Organized buffer tabs with management
-- 💬 Floating command line and notifications
-- 🎯 Visual indentation guides with scope highlighting
-- 🔍 Telescope with preview and multi-select
+- Beautiful Catppuccin colorscheme (Mocha)
+- Clean statusline with essential information
+- Organized buffer tabs with management
+- Floating command line and notifications
+- Visual indentation guides with scope highlighting
+- Rainbow delimiters for bracket matching
+- Telescope with preview and multi-select
 
-### 🔧 **Language Support**
+### **Language Support**
 
-- 🧠 Full LSP integration (pyright, ts_ls, lua_ls, rust_analyzer, gopls, clangd, etc.)
-- ⚡ Smart autocompletion with prioritized sources
-- 🌲 Treesitter syntax highlighting
-- 📝 Inlay hints support (TypeScript, Rust, Go)
-- � Semantic tokens and document symbols
-- 🛠️ Code actions and refactoring
-- 📐 Auto-formatting with async support
+- Full LSP integration (pyright, ts_ls, lua_ls, clangd, vue_ls, eslint, ruff)
+- Smart autocompletion with prioritized sources
+- Treesitter syntax highlighting and text objects
+- Inlay hints support
+- Semantic tokens and document symbols
+- Code actions and refactoring
+- Auto-formatting with conform.nvim (async)
 
-### 🗂️ **File Management**
+### **Navigation & Editing**
 
-- 📁 Multi-source file explorer (files, buffers, git status, symbols)
-- 🔍 Powerful fuzzy finding with Telescope
-- 🌲 Git-integrated file tree
-- 📊 File size, timestamps, and diagnostics display
-- 🔗 Symlink support and path operations
+- Flash.nvim for lightning-fast jumps
+- Surround operations (add/change/delete surroundings)
+- Treesitter text objects for code-aware selection
+- Powerful fuzzy finding with Telescope
+- Git-integrated file tree with Neo-tree
 
-### 🎮 **Developer Tools**
+### **Developer Tools**
 
-- 🏆 Integrated LeetCode environment
-- 📝 Live markdown preview with math and diagrams
-- 💻 Floating terminal with multiple layouts
-- 🔀 Git integration (blame, diff, stage, commit)
-- 💡 Real-time diagnostics and error display
-- 📚 Which-key for keymap discovery
+- Integrated LeetCode environment
+- Live markdown preview (browser + terminal)
+- Floating terminal with multiple layouts
+- Git integration (blame, diff, stage, commit)
+- Real-time diagnostics and error display
+- Which-key for keymap discovery
 
-### 🎯 **Workflow Optimization**
+### **Workflow Optimization**
 
-- ⌨️ Mnemonic keybindings
-- 🔄 Vim motions everywhere
-- 🎨 Comment toggling with context awareness
-- � Auto-pairs and auto-tags
-- 📋 System clipboard integration
-- 🎪 Multiple buffer/window management options
-
----
-
-## 🛠️ Philosophy
-
-This configuration prioritizes:
-
-- **Speed over features** - Only essential functionality, highly optimized
-- **Predictability over AI** - Traditional LSP-based completions, no AI interference
-- **Keyboard-first workflow** - Minimal mouse dependency, vim-like navigation
-- **Floating UI** - Modern popup-based interface for better focus
+- Mnemonic keybindings
+- Vim motions everywhere
+- Auto-pairs and auto-tags
+- System clipboard integration
+- Multiple buffer/window management options
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 
 ```bash
 # Essential dependencies
 sudo apt install ripgrep fd-find xclip  # Ubuntu/Debian
-brew install ripgrep fd               # macOS
+sudo pacman -S ripgrep fd xclip glow    # Arch Linux
+brew install ripgrep fd glow            # macOS
 
 # A Nerd Font (recommended: JetBrainsMono Nerd Font)
 # Download from: https://www.nerdfonts.com/
@@ -206,140 +196,181 @@ git clone https://github.com/Snehit70/adv_neovim_setup.git ~/.config/nvim
 nvim
 ```
 
-## ⌨️ Key Mappings
+---
+
+## Key Mappings
 
 ### Leader Key: `<Space>`
 
-#### 🔍 **File Navigation (Telescope)**
+### General
 
-| Key           | Action         | Description                           |
-| ------------- | -------------- | ------------------------------------- |
-| `<leader>ff`  | Find Files     | Fast file search with ignore patterns |
-| `<leader>fg`  | Live Grep      | Search text across all files          |
-| `<leader>fb`  | Find Buffers   | Switch between open buffers           |
-| `<leader>fh`  | Help Tags      | Search Neovim help                    |
-| `<leader>fo`  | Old Files      | Recently opened files                 |
-| `<leader>fc`  | Commands       | Browse available commands             |
-| `<leader>fk`  | Keymaps        | Search all keybindings                |
-| `<leader>fs`  | Grep String    | Search word under cursor              |
-| `<leader>fr`  | Resume Last    | Continue previous search              |
-| `<leader>gf`  | Git Status     | Changed files (Telescope)             |
-| `<leader>gc`  | Git Commits    | Browse commit history                 |
-| `<leader>gbc` | Buffer Commits | Commits for current file              |
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `<C-h/j/k/l>` | Window Navigation | Move between splits |
+| `<C-Up/Down>` | Resize Height | Increase/decrease window height |
+| `<C-Left/Right>` | Resize Width | Increase/decrease window width |
+| `<A-j>` / `<A-k>` | Move Lines | Move current line up/down |
+| `<C-s>` | Save | Save current file |
+| `<Esc>` | Clear Search | Clear search highlighting |
+| `<leader>L` | Lazy | Open plugin manager |
+| `<leader>fn` | New File | Create new buffer |
+| `<leader>qq` | Quit All | Close Neovim |
+| `<leader>\`` | Alt Buffer | Switch to alternate buffer |
 
-#### 📁 **File Explorer (Neo-tree)**
+### File Navigation (Telescope)
 
-| Key               | Action              | Description                   |
-| ----------------- | ------------------- | ----------------------------- |
-| `<leader>e`       | Toggle Explorer     | Open/close floating file tree |
-| `<leader>E`       | Focus Explorer      | Focus on open file tree       |
-| `<leader>ge`      | Git Status Explorer | View git changes              |
-| `<leader>be`      | Buffer Explorer     | Browse open buffers           |
-| `<leader>se`      | Symbols Explorer    | Navigate document symbols     |
-| **In Neo-tree:**  |                     |                               |
-| `h` / `l`         | Close/Open Node     | Navigate tree                 |
-| `a` / `A`         | Add File/Directory  | Create new items              |
-| `d`               | Delete              | Remove file/folder            |
-| `r`               | Rename              | Rename item                   |
-| `y` / `x` / `p`   | Copy/Cut/Paste      | Clipboard operations          |
-| `Y` / `gy`        | Copy Path           | Absolute/relative path        |
-| `/`               | Fuzzy Find          | Search in tree                |
-| `H`               | Toggle Hidden       | Show/hide dotfiles            |
-| `ga` / `gu`       | Git Add/Unstage     | Git operations                |
-| `<C-f>` / `<C-g>` | Telescope Find/Grep | Search in directory           |
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `<leader>ff` | Find Files | Fast file search with ignore patterns |
+| `<leader>fg` | Live Grep | Search text across all files |
+| `<leader>fb` | Buffers | Switch between open buffers |
+| `<leader>fh` | Help Tags | Search Neovim help |
+| `<leader>fr` | Recent Files | Recently opened files |
+| `<leader>fc` | Commands | Browse available commands |
+| `<leader>fk` | Keymaps | Search all keybindings |
 
-#### 💻 **Terminal**
+### File Explorer (Neo-tree)
 
-| Key          | Action          | Description                    |
-| ------------ | --------------- | ------------------------------ |
-| `<leader>tt` | Toggle Terminal | Floating terminal for commands |
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `<leader>e` | Toggle Explorer | Open/close floating file tree |
+| `<leader>E` | Focus Explorer | Focus on open file tree |
+| **In Neo-tree:** | | |
+| `<CR>` | Open | Open file/directory |
+| `<Esc>` / `q` | Close | Close explorer |
+| `a` | Add | Create new file |
+| `d` | Delete | Remove file/folder |
+| `r` | Rename | Rename item |
+| `H` | Toggle Hidden | Show/hide dotfiles |
+| `?` | Help | Show available mappings |
+| `<BS>` | Navigate Up | Go to parent directory |
+| `.` | Set Root | Set current directory as root |
 
-#### 🔧 **LSP & Code**
+### Flash (Jump/Search)
 
-| Key          | Action               | Description                    |
-| ------------ | -------------------- | ------------------------------ |
-| `gd`         | Go to Definition     | Jump to symbol definition      |
-| `gD`         | Go to Declaration    | Jump to symbol declaration     |
-| `gr`         | Go to References     | Show all references            |
-| `gi`         | Go to Implementation | Jump to implementation         |
-| `K`          | Hover Documentation  | Show symbol docs               |
-| `<C-k>`      | Signature Help       | Show function signature        |
-| `<leader>ca` | Code Actions         | Show available fixes/refactors |
-| `<leader>rn` | Rename Symbol        | Rename across entire project   |
-| `<leader>cf` | Format Code          | Format current buffer (async)  |
-| `<leader>cl` | Run CodeLens         | Execute code lens action       |
-| `<leader>th` | Toggle Inlay Hints   | Show/hide type hints           |
-| `<leader>d`  | Line Diagnostics     | Error details in popup         |
-| `<leader>q`  | Diagnostics List     | All errors/warnings            |
-| `[d` / `]d`  | Prev/Next Diagnostic | Navigate diagnostics           |
-| `[g` / `]g`  | Prev/Next Git Hunk   | Navigate git changes           |
+| Key | Mode | Action | Description |
+| --- | ---- | ------ | ----------- |
+| `s` | n, x, o | Flash Jump | Jump to any location |
+| `S` | n, x, o | Flash Treesitter | Select treesitter nodes |
+| `r` | o | Remote Flash | Remote action at location |
+| `R` | o, x | Treesitter Search | Search and select nodes |
+| `<C-s>` | c | Toggle Flash | Toggle flash in search |
 
-#### 📚 **LeetCode**
+### Surround
 
-| Key                           | Action               | Description                 |
-| ----------------------------- | -------------------- | --------------------------- |
-| `<leader>lq`                  | LeetCode Menu        | Open problem browser        |
-| `<leader>ll`                  | List Problems        | Browse all problems         |
-| `<leader>lle` / `llm` / `llh` | Filter by Difficulty | Easy/Medium/Hard            |
-| `<leader>ldy`                 | Daily Problem        | Today's challenge           |
-| `<leader>lrn`                 | Random Problem       | Practice random             |
-| `<leader>lt`                  | Test Solution        | Run test cases              |
-| `<leader>ls`                  | Submit Solution      | Submit to LeetCode          |
-| `<leader>lr`                  | Run Solution         | Execute with custom input   |
-| `<leader>li`                  | Problem Info         | Show problem details        |
-| `<leader>lc`                  | Console              | Open test console           |
-| `<leader>ld`                  | Toggle Description   | Show/hide problem           |
-| `<leader>ly`                  | Yank Code            | Copy solution               |
-| `<leader>llg`                 | Change Language      | Switch programming language |
-| `<leader>lo`                  | Open in Browser      | View on LeetCode.com        |
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `ys{motion}{char}` | Add | Add surrounding (e.g., `ysiw"`) |
+| `ds{char}` | Delete | Delete surrounding (e.g., `ds"`) |
+| `cs{old}{new}` | Change | Change surrounding (e.g., `cs"'`) |
+| `yss{char}` | Line | Surround entire line |
 
-#### 🎨 **Git Operations**
+### Treesitter Text Objects
 
-| Key           | Action         | Description            |
-| ------------- | -------------- | ---------------------- |
-| `<leader>gb`  | Git Blame      | Full commit info       |
-| `<leader>gbl` | Blame Line     | Inline blame for line  |
-| `<leader>gt`  | Toggle Blame   | Show/hide inline blame |
-| `<leader>gd`  | Diff This      | Show changes           |
-| `<leader>gS`  | Stage Buffer   | Stage all changes      |
-| `<leader>gR`  | Reset Buffer   | Discard all changes    |
-| `<leader>gts` | Toggle Signs   | Show/hide git column   |
-| `[g` / `]g`   | Prev/Next Hunk | Navigate changes       |
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `af` / `if` | Function | Around/inside function |
+| `ac` / `ic` | Class | Around/inside class |
+| `aa` / `ia` | Parameter | Around/inside argument |
+| `ab` / `ib` | Block | Around/inside block |
+| `al` / `il` | Loop | Around/inside loop |
+| `ai` / `ii` | Conditional | Around/inside if statement |
+| `]m` / `[m` | Next/Prev Function | Jump to function start |
+| `]]` / `[[` | Next/Prev Class | Jump to class |
+| `]a` / `[a` | Next/Prev Parameter | Jump to parameter |
+| `<leader>a` | Swap Next | Swap parameter with next |
+| `<leader>A` | Swap Prev | Swap parameter with previous |
 
-#### 📖 **Markdown**
+### LSP & Code
 
-| Key          | Action         | Description           |
-| ------------ | -------------- | --------------------- |
-| `<leader>mp` | Preview Toggle | Live markdown preview |
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `gd` | Definition | Go to definition |
+| `gD` | Declaration | Go to declaration |
+| `gr` | References | Show all references |
+| `gi` | Implementation | Go to implementation |
+| `K` | Hover | Show documentation |
+| `<C-k>` | Signature | Show function signature |
+| `<leader>ca` | Code Actions | Show available fixes/refactors |
+| `<leader>rn` | Rename | Rename symbol across project |
+| `<leader>cf` | Format | Format current buffer (async) |
+| `<leader>th` | Inlay Hints | Toggle type hints |
+| `<leader>d` | Diagnostics | Line diagnostics in popup |
+| `<leader>q` | Diagnostics List | All errors/warnings |
+| `[d` / `]d` | Navigate | Previous/next diagnostic |
 
-#### 🗂️ **Buffer Management**
+### Git Operations
 
-| Key          | Action          | Description               |
-| ------------ | --------------- | ------------------------- |
-| `<Tab>`      | Next Buffer     | Cycle to next buffer      |
-| `<S-Tab>`    | Previous Buffer | Cycle to previous buffer  |
-| `<leader>bc` | Close Buffer    | Close current buffer      |
-| `<leader>bo` | Close Others    | Close all other buffers   |
-| `<leader>br` | Close Right     | Close buffers to right    |
-| `<leader>bl` | Close Left      | Close buffers to left     |
-| `<leader>bp` | Pick Buffer     | Interactive buffer picker |
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `<leader>gf` | Git Status | Changed files (Telescope) |
+| `<leader>gc` | Git Commits | Browse commit history |
+| `<leader>gbc` | Buffer Commits | Commits for current file |
+| `<leader>gb` | Full Blame | Full commit info |
+| `<leader>gbl` | Blame Line | Inline blame for line |
+| `<leader>gt` | Toggle Blame | Show/hide inline blame |
+| `<leader>gd` | Diff This | Show changes |
+| `<leader>gdt` | Diff This ~ | Diff against previous |
+| `<leader>gD` | Diff Float | Floating diff view |
+| `<leader>gS` | Stage Buffer | Stage all changes |
+| `<leader>gR` | Reset Buffer | Discard all changes |
+| `<leader>gts` | Toggle Signs | Show/hide git column |
+| `<leader>gtd` | Toggle Deleted | Show/hide deleted lines |
 
-#### 🪟 **Window Management**
+### Terminal
 
-| Key                     | Action       | Description             |
-| ----------------------- | ------------ | ----------------------- | --------- | -------------- |
-| `<C-w>s` / `<leader>ws` | Split Below  | Horizontal split        |
-| `<C-w>v` / `<leader>wv` | Split Right  | Vertical split          |
-| `<C-w>c` / `<leader>wd` | Close Window | Close current window    |
-| `<C-w>o`                | Close Others | Close all other windows |
-| `<C-w>h/j/k/l`          | Focus Window | Navigate splits         |
-| `<C-w>=` / `<leader>w=` | Equal Size   | Balance window sizes    |
-| `<C-w>                  | `/`<leader>w | `                       | Max Width | Maximize width |
-| `<C-w>_` / `<leader>w_` | Max Height   | Maximize height         |
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `<leader>tt` | Toggle Terminal | Floating terminal |
+| **In Terminal:** | | |
+| `<Esc>` / `jk` | Normal Mode | Exit terminal mode |
+| `<C-h/j/k/l>` | Navigate | Move to other windows |
+| `<C-q>` | Close | Close terminal |
+
+### Buffer Management
+
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `<Tab>` | Next Buffer | Cycle to next buffer |
+| `<S-Tab>` | Prev Buffer | Cycle to previous buffer |
+| `<S-l>` | Next Buffer | Alternative next |
+| `<S-h>` | Prev Buffer | Alternative previous |
+| `[b` / `]b` | Navigate | Previous/next buffer |
+| `<leader>bc` | Close Buffer | Close current buffer |
+| `<leader>bo` | Close Others | Close all other buffers |
+
+### Markdown
+
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `<leader>mp` | Preview Toggle | Live browser preview |
+| `<leader>mo` | Preview Open | Open browser preview |
+| `<leader>mc` | Preview Close | Stop preview |
+| `<leader>mg` | Glow Preview | Terminal preview |
+
+### LeetCode
+
+| Key | Action | Description |
+| --- | ------ | ----------- |
+| `<leader>lq` | Menu | Open LeetCode menu |
+| `<leader>ll` | List | Browse all problems |
+| `<leader>lle` / `llm` / `llh` | Filter | Easy/Medium/Hard |
+| `<leader>ldy` | Daily | Today's challenge |
+| `<leader>lrn` | Random | Random problem |
+| `<leader>lt` | Test | Run test cases |
+| `<leader>ls` | Submit | Submit solution |
+| `<leader>lr` | Run | Execute with custom input |
+| `<leader>li` | Info | Show problem details |
+| `<leader>lc` | Console | Open test console |
+| `<leader>ld` | Description | Toggle problem description |
+| `<leader>ly` | Yank | Copy solution code |
+| `<leader>llg` | Language | Change programming language |
+| `<leader>lo` | Browser | Open on LeetCode.com |
+| `<leader>lx` | Exit | Exit LeetCode mode |
 
 ---
 
-## 🔌 Plugin Ecosystem
+## Plugin Ecosystem
 
 ### Core Framework
 
@@ -352,21 +383,28 @@ nvim
 - **[lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)** - Blazing fast statusline with custom components
 - **[bufferline.nvim](https://github.com/akinsho/bufferline.nvim)** - Clean buffer tabs with intelligent management
 - **[noice.nvim](https://github.com/folke/noice.nvim)** - Modern UI for messages, cmdline, and notifications
+- **[nvim-notify](https://github.com/rcarriga/nvim-notify)** - Fancy notification manager
 - **[indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)** - Indentation guides with scope highlighting
 - **[which-key.nvim](https://github.com/folke/which-key.nvim)** - Keymap hints and interactive documentation
 
-### File Management
+### Navigation & Editing
 
-- **[neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)** - Multi-source file explorer (files, buffers, git, symbols)
+- **[flash.nvim](https://github.com/folke/flash.nvim)** - Lightning-fast jump and search with treesitter integration
+- **[nvim-surround](https://github.com/kylechui/nvim-surround)** - Add/change/delete surroundings (brackets, quotes, tags)
+- **[neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)** - Modern file explorer with git integration
 - **[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)** - Extendable fuzzy finder with performance optimizations
+- **[telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)** - FZF sorter for telescope
 
 ### Code Intelligence
 
 - **[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)** - LSP configuration with server-specific optimizations
 - **[mason.nvim](https://github.com/williamboman/mason.nvim)** - Automatic LSP/DAP/Linter installer
 - **[mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)** - Bridge between Mason and lspconfig
+- **[mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)** - Auto-install formatters and linters
+- **[conform.nvim](https://github.com/stevearc/conform.nvim)** - Async formatting engine
 - **[nvim-cmp](https://github.com/hrsh7th/nvim-cmp)** - Completion engine (LSP-only, NO AI)
   - **cmp-nvim-lsp** - LSP completion source
+  - **cmp-nvim-lua** - Neovim Lua API completion
   - **cmp-buffer** - Buffer words completion
   - **cmp-path** - Filesystem path completion
   - **cmp-cmdline** - Command-line completion
@@ -374,61 +412,62 @@ nvim
   - **cmp_luasnip** - Snippet completion
   - **friendly-snippets** - Pre-configured snippets
 - **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** - Advanced syntax highlighting and code understanding
+- **[nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)** - Treesitter-based text objects
+- **[rainbow-delimiters.nvim](https://github.com/hiphish/rainbow-delimiters.nvim)** - Rainbow brackets for nested code
 
 ### Development Tools
 
 - **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)** - Git decorations, hunk management, and blame
-- **[Comment.nvim](https://github.com/numToStr/Comment.nvim)** - Smart commenting with treesitter integration
 - **[nvim-autopairs](https://github.com/windwp/nvim-autopairs)** - Auto-close brackets, quotes, and tags
 - **[nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)** - Auto-close and rename HTML/XML tags
-- **[toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)** - Multiple terminal integration with layouts
+- **[toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)** - Floating terminal integration
 
 ### Specialized Tools
 
 - **[leetcode.nvim](https://github.com/kawre/leetcode.nvim)** - Complete LeetCode environment (browse, solve, test, submit)
-- **[markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)** - Live markdown preview with math and diagrams
+- **[markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)** - Live markdown preview in browser
+- **[glow.nvim](https://github.com/ellisonleao/glow.nvim)** - Terminal-based markdown preview
 
 ---
 
-## 🎯 Language Server Configuration
+## Language Server Configuration
 
-### Pre-configured LSP Servers
+### Auto-Installed LSP Servers
 
-This configuration includes server-specific optimizations for:
+These servers are automatically installed via Mason when you first open Neovim:
 
-#### **Systems Programming**
+| Server | Language | Features |
+| ------ | -------- | -------- |
+| **lua_ls** | Lua | Neovim API completion, inlay hints |
+| **pyright** | Python | Type checking, workspace analysis |
+| **ruff** | Python | Fast linting and quickfixes |
+| **ts_ls** | TypeScript/JavaScript | Full inlay hints, Vue plugin support |
+| **vue_ls** | Vue.js | Single-file component support |
+| **eslint** | JS/TS/Vue | Linting integration |
+| **clangd** | C/C++ | clang-tidy, header insertion, background indexing |
 
-- **clangd** - C/C++ with clang-tidy, header insertion, background indexing
-- **rust_analyzer** - Rust with clippy, comprehensive inlay hints
+### Auto-Installed Formatters & Linters
 
-#### **Web Development**
+| Tool | Languages |
+| ---- | --------- |
+| **stylua** | Lua |
+| **ruff** | Python |
+| **prettierd** | JS, TS, Vue, CSS, HTML, JSON, YAML, Markdown |
+| **clang-format** | C, C++ |
+| **jdtls** | Java |
 
-- **ts_ls/tsserver** - TypeScript/JavaScript with full inlay hints
-- **html** - HTML language server
-- **cssls** - CSS/SCSS/LESS language server
-- **emmet_ls** - Emmet abbreviations for HTML/CSS
-- **tailwindcss** - Tailwind CSS IntelliSense
+### Installing Additional Servers
 
-#### **Backend Languages**
+Additional servers can be installed via Mason and will work automatically:
 
-- **pyright** - Python with type checking and analysis
-- **gopls** - Go with staticcheck, gofumpt, comprehensive hints
-- **jdtls** - Java development
-
-#### **Scripting & Configuration**
-
-- **lua_ls** - Lua with Neovim API completion and inlay hints
-- **bashls** - Bash/Shell scripting
-- **jsonls** - JSON with schema validation
-- **yamlls** - YAML with schema support
-
-#### **Templating**
-
-- **jinja_lsp** - Jinja2 template support
+```vim
+:Mason
+" Select server and press 'i' to install
+```
 
 ### Features per Language
 
-✅ **All languages get:**
+**All languages get:**
 
 - Auto-completion with snippets
 - Go to definition/references/implementation
@@ -438,26 +477,15 @@ This configuration includes server-specific optimizations for:
 - Diagnostics with virtual text
 - Document symbols navigation
 
-✅ **Enhanced features (where supported):**
+**Enhanced features (where supported):**
 
 - Inlay hints (types, parameters, return values)
 - Semantic highlighting
-- Code lens actions
-- Call hierarchy
 - Signature help in real-time
-
-### Installation
-
-All servers auto-install via Mason when you open a file of that type. Manual installation:
-
-```vim
-:Mason
-" Select server and press 'i' to install
-```
 
 ---
 
-## ⚡ Performance Optimizations
+## Performance Optimizations
 
 ### Startup Performance
 
@@ -490,9 +518,8 @@ All servers auto-install via Mason when you open a file of that type. Manual ins
 ### LSP Performance
 
 - **Server-specific optimizations** - Custom configs per language server
-- **Codelens auto-refresh** - Only on meaningful events
 - **Semantic tokens** - Enabled selectively for better highlighting
-- **Max file length limits** - Skip gitsigns/diagnostics on huge files (10k+ lines)
+- **Max file length limits** - Skip gitsigns on huge files (10k+ lines)
 
 ### Memory Efficiency
 
@@ -503,75 +530,75 @@ All servers auto-install via Mason when you open a file of that type. Manual ins
 
 ---
 
-## 🚫 What's NOT Included (By Design)
+## What's NOT Included (By Design)
 
 This configuration intentionally excludes certain features to maintain its philosophy:
 
-### ❌ AI Code Completion Tools
+### AI Code Completion Tools
 
 - **No GitHub Copilot** - Unpredictable suggestions, privacy concerns, learning impediment
 - **No Codeium/TabNine/etc.** - Black box completions, requires internet, trust issues
-- **Why?** - Traditional LSP provides predictable, context-aware completions based on actual code analysis. You learn by understanding your codebase, not by accepting mystery suggestions.
+- **Why?** - Traditional LSP provides predictable, context-aware completions based on actual code analysis.
 
-### ❌ Complex Debugging GUIs
+### Complex Debugging GUIs
 
 - **No nvim-dap UI** - Terminal debugging is sufficient for most use cases
 - **Why?** - Adds complexity and keybindings. Print debugging and LSP are enough for 95% of debugging tasks.
 
-### ❌ Multiple Colorschemes
+### Multiple Colorschemes
 
 - **Only Catppuccin** - One well-configured theme
-- **Why?** - Theme switching adds cognitive overhead and testing complexity. Pick one, configure it perfectly, move on.
+- **Why?** - Theme switching adds cognitive overhead and testing complexity.
 
-### ❌ Git GUI Plugins
+### Git GUI Plugins
 
 - **No lazygit.nvim/neogit** - gitsigns + terminal git is enough
-- **Why?** - Learning git CLI is more valuable. Heavy git plugins add dependencies and startup time.
+- **Why?** - Learning git CLI is more valuable.
 
-### ❌ Dashboard/Start Screens
+### Dashboard/Start Screens
 
 - **No alpha/dashboard** - Opens to files immediately
-- **Why?** - You're here to code, not admire ASCII art. Faster startup, clearer purpose.
+- **Why?** - You're here to code, not admire ASCII art.
 
-### ❌ Session Management
+### Session Management
 
 - **No auto-session/persistence** - Manual session control via `:mksession`
 - **Why?** - Automatic session restore can be confusing. Explicit is better than implicit.
 
-### ❌ Every Possible LSP Server
+### Every Possible LSP Server
 
 - **Install what you need** - Via `:Mason` when needed
 - **Why?** - Not every developer needs every language. On-demand installation keeps things lean.
 
-### ❌ Test Runners/DAP
+### Test Runners/DAP
 
 - **Use terminal commands** - `pytest`, `cargo test`, `go test`, etc.
 - **Why?** - Language-specific test runners are better learned in their native environment.
 
 ### What You Get Instead
 
-✅ **Speed** - No bloat means faster everything  
-✅ **Predictability** - No surprises, no mysteries  
-✅ **Learning** - Forces you to understand your tools  
-✅ **Reliability** - Fewer dependencies, fewer breakages  
-✅ **Focus** - Purpose-built for efficient coding
+- **Speed** - No bloat means faster everything
+- **Predictability** - No surprises, no mysteries
+- **Learning** - Forces you to understand your tools
+- **Reliability** - Fewer dependencies, fewer breakages
+- **Focus** - Purpose-built for efficient coding
 
 ---
 
-## 🔧 Customization
+## Customization
 
 ### Adding Language Servers
 
-Edit `lua/plugins/mason_lspconfig_config.lua`:
+Edit `lua/plugins/lsp_config.lua`:
 
 ```lua
-opts = {
+mason_lspconfig.setup({
   ensure_installed = {
     "lua_ls",
     "pyright",
     "your_language_server", -- Add here
   },
-}
+})
 ```
 
 ### Changing Colorscheme
@@ -592,7 +619,21 @@ return {
 }
 ```
 
-## 🐛 Troubleshooting
+### Adding Formatters
+
+Edit `lua/plugins/formatting.lua`:
+
+```lua
+formatters_by_ft = {
+  lua = { "stylua" },
+  python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
+  your_language = { "your_formatter" },
+}
+```
+
+---
+
+## Troubleshooting
 
 ### Common Issues
 
@@ -600,6 +641,7 @@ return {
 2. **LSP not working** - Check `:Mason` for server installation status
 3. **Telescope errors** - Ensure `ripgrep` and `fd` are installed
 4. **Missing icons** - Install a Nerd Font and set it in your terminal
+5. **Glow not working** - Install `glow` CLI tool
 
 ### Health Checks
 
@@ -609,11 +651,15 @@ return {
 :checkhealth mason     " Mason-specific health
 ```
 
-## 📜 License
+---
+
+## License
 
 MIT License - Feel free to fork and customize for your needs!
 
-## 🙏 Acknowledgments
+---
+
+## Acknowledgments
 
 This configuration is built on the shoulders of giants:
 
@@ -622,14 +668,7 @@ This configuration is built on the shoulders of giants:
 - The Neovim community for incredible plugin ecosystem
 - [ThePrimeagen](https://github.com/ThePrimeagen) for emphasizing speed and keyboard efficiency
 - [TJ DeVries](https://github.com/tjdevries) for advancing Neovim and Telescope
-- [Folke Lemaitre](https://github.com/folke) for revolutionary plugins (lazy.nvim, which-key, noice)
-
-### Special Thanks
-
-- All plugin authors who maintain these incredible tools
-- The Neovim core team for the best editor ever created
-- The Lua community for making Neovim configuration elegant
-- Everyone who values performance and intentional design
+- [Folke Lemaitre](https://github.com/folke) for revolutionary plugins (lazy.nvim, which-key, noice, flash.nvim)
 
 ### Built For
 
@@ -644,6 +683,6 @@ Developers who want to:
 
 **"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."**
 
-_Happy Coding! 🚀_
+_Happy Coding!_
 
 </div>
