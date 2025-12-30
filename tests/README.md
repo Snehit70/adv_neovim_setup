@@ -19,7 +19,7 @@ Before running the tests, make sure you have `plenary.nvim` installed. Add it to
 ### Run all tests
 
 ```bash
-nvim --headless -c "PlenaryBustedDirectory tests/ { minimal_init = 'init.lua' }"
+nvim --headless -c "PlenaryBustedDirectory tests/ { minimal_init_path = 'tests/minimal_init.lua' }"
 ```
 
 ### Run a specific test file

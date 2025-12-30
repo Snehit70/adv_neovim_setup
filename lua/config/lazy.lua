@@ -1,7 +1,6 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
--- Use vim.uv (Neovim 0.10+) with fallback to vim.loop (0.9)
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -16,6 +15,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+    -- Plenary must be loaded immediately for tests and telescope
+    { "nvim-lua/plenary.nvim", lazy = false },
     -- Import plugins from lua/plugins/
     { import = "plugins" },
   },

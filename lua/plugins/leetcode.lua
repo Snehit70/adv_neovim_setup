@@ -159,7 +159,7 @@ return {
       ["question_enter"] = {
         function()
           -- Auto-save when switching questions
-          vim.cmd("silent! write")
+          vim.api.nvim_command("silent! write")
         end,
       },
       ["question_leave"] = {},
@@ -283,7 +283,7 @@ return {
         vim.api.nvim_create_autocmd("InsertLeave", {
           buffer = 0,
           callback = function()
-            vim.cmd("silent! write")
+            vim.api.nvim_command("silent! write")
           end,
         })
       end,
